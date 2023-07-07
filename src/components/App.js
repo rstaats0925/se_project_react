@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <Header></Header>
       <main>
-        <Weather></Weather>
+        <Weather day={true} type='sunny'></Weather>
         <section className='Cards'>Cards</section>
       </main>
     </div>
