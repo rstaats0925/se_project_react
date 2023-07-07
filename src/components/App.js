@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <Header></Header>
       <main>
-        <section className='Weather'>Weather</section>
+        <section className='Weather'>weather</section>
         <section className='Cards'>Cards</section>
       </main>
     </div>
