@@ -14,7 +14,7 @@ function Header() {
         <div className='header__date'>{currentDate}, location</div>
       </div>
       <div className='user'>
-        <div className='header__add-clothes'>+ Add clothes</div>
+        <button className='header__add-clothes' type="button">+ Add clothes</button>
         <div className='header__username'>Terrence Tegegne</div>
         <div className='header__avatar'><img src={avatar} alt="avatar"></img></div>
       </div>

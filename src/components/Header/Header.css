@@ -30,6 +30,11 @@
   font-size: 20px;
   line-height: 24px;
   margin-right: 20px;
+  border: none;
+}
+
+.header__add-clothes:hover {
+  cursor: pointer;
 }
 
 .header__username {
