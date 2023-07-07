@@ -1,12 +1,13 @@
 import './App.css';
 import Header from './Header/Header.js';
+import Weather from './Weather/Weather.js';
 
 function App() {
   return (
     <div className="App">
       <Header></Header>
       <main>
-        <section className='Weather'>weather</section>
+        <Weather></Weather>
         <section className='Cards'>Cards</section>
       </main>
     </div>

@@ -1,0 +1,21 @@
+.weather {
+  /* outline: 1px solid red; */
+  position: relative;
+  margin-top: 40px;
+}
+
+.weather__image {
+  width: 100%;
+}
+
+.weather__temperature {
+  /* outline: 1px solid red; */
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 40px;
+  color: #FFF;
+  margin: 0;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
