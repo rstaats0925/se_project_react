@@ -5,6 +5,10 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
+      <main>
+        <section className='Weather'>Weather</section>
+        <section className='Cards'>Cards</section>
+      </main>
     </div>
   );
 }
