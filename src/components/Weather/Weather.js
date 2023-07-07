@@ -1,16 +1,16 @@
 import React from 'react';
 import './Weather.css';
-import sunnyWeather from '../../images/day/day-sunny.svg';
-import rainyWeather from '../../images/day/day-rain.svg';
-import stormyWeather from '../../images/night/night-storm.svg';
-import snowyWeather from '../../images/night/night-snow.svg';
+// import sunnyWeather from '../../images/day/day-sunny.svg';
+// import rainyWeather from '../../images/day/day-rain.svg';
+// import stormyWeather from '../../images/night/night-storm.svg';
+// import snowyWeather from '../../images/night/night-snow.svg';
 
 
 const weatherOptions = [
-  {url: rainyWeather, day: true, type: 'rain'},
-  {url: sunnyWeather, day: true, type: 'sunny'},
-  {url: stormyWeather, day: false, type: 'storm'},
-  {url: snowyWeather, day: false, type: 'snow'}
+  {url: require('../../images/day/day-rain.svg').default, day: true, type: 'rain'},
+  {url: require('../../images/day/day-sunny.svg').default, day: true, type: 'sunny'},
+  {url: require('../../images/night/night-storm.svg').default, day: false, type: 'storm'},
+  {url: require('../../images/night/night-snow.svg').default, day: false, type: 'snow'}
 ];
 
 function Weather ({day, type}) {
@@ -18,7 +18,7 @@ function Weather ({day, type}) {
     return obj.day === day && obj.type === type;
   });
 
-  let weatherSrc = weatherObj[0].url;
+  let weatherSrc = weatherObj[0].url || "";
 
   return (
     <div className='weather'>
