@@ -13,11 +13,11 @@ function App() {
       <Header></Header>
       <main>
         <Weather day={true} type='sunny'></Weather>
-        <section className='Cards'>
-        <p>Today is 75&#176;F / You may want to wear:</p>
-        <ul>
+        <section className='card-items'>
+        <p className='card-items__message'>Today is 75&#176;F / You may want to wear:</p>
+        <ul className='card-items__list'>
           {items.map((item) => (
-            <li key={item._id}>
+            <li className='item' key={item._id}>
               <ItemCard link={item.link} name={item.name}></ItemCard>
             </li>
           ))}

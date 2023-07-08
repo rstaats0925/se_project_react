@@ -4,3 +4,28 @@
   padding: 40px;
   background-color: #F3F3F3;
 }
+
+.card-items__message {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  margin: 0;
+}
+
+.card-items__list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.item {
+  border: 1px rgba(0, 0, 0, 0.3) solid;
+  overflow: hidden;
+  width: 325px;
+  height: 328px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
