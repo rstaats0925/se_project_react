@@ -7,14 +7,14 @@ import defaultClothingItems from '../utils/utils.js';
 
 function App() {
   const [items, setItems] = React.useState(defaultClothingItems);
-
+  const temp = "78"
   return (
     <div className="App">
       <Header></Header>
       <main>
-        <Weather day={true} type='sunny'></Weather>
+        <Weather day={true} type='sunny' temperature={temp}></Weather>
         <section className='card-items'>
-        <p className='card-items__message'>Today is 75&#176;F / You may want to wear:</p>
+        <p className='card-items__message'>Today is {temp}&#176;F / You may want to wear:</p>
         <ul className='card-items__list'>
           {items.map((item) => (
             <li className='item' key={item._id}>
