@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import Header from '../Header/Header.js';
 import Main from '../Main/Main';
+import Footer from '../Footer/Footer';
 import defaultClothingItems from '../../utils/utils.js';
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <Main temperature={temp} clothes={items}/>      
+      <Main temperature={temp} clothes={items}/>
+      <Footer/>      
     </div>
   );
 }
