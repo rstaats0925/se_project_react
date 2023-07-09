@@ -1,5 +1,6 @@
 import ItemCard from "../ItemCard/ItemCard";
 import Weather from "../Weather/Weather";
+import './Main.css';
 
 function Main({temperature, clothes}) {
   return (
