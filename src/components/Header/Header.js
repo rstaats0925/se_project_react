@@ -13,10 +13,12 @@ function Header() {
         <img src={logo} alt="logo" className='header__logo'></img>
         <div className='header__date'>{currentDate}, location</div>
       </div>
-      <div className='user'>
-        <button className='header__add-clothes' type="button">+ Add clothes</button>
-        <div className='header__username'>Terrence Tegegne</div>
-        <div className='header__avatar'><img src={avatar} alt="avatar"></img></div>
+      <div className='header__user'>
+        <div className='header__button-username'>
+          <button className='header__add-clothes' type="button">+ Add clothes</button>
+          <div className='header__username'>Terrence Tegegne</div>
+        </div>
+        <div className='header__avatar-container'><img className='avatar' src={avatar} alt="avatar"></img></div>
       </div>
     </div>
   );

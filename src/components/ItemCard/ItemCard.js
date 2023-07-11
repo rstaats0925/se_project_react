@@ -1,14 +1,12 @@
 import React from 'react';
 import './ItemCard.css';
 
-function ItemCard ({name, link}) {
+function ItemCard ({name, link, key}) {
+  console.log(key);
   return (
-    <>
-      <img className='item__image' src={link} alt={name}/>
-      <div className='item__name_background'>
+    <li key={key}>
         <p className='item__name'>{name}</p>
-      </div>
-    </>
+    </li>
   );
 }
 

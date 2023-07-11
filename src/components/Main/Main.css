@@ -1,41 +1,35 @@
-.card-items__message {
+.Main {
+  outline: 1px solid red;
+}
+
+.clothes__message {
   font-weight: 700;
   font-size: 20px;
-  line-height: 25px;
-  margin: 0;
+  margin: 0 0 34px 0;
 }
 
-.card-items {
-  padding: none;
+.clothes {
+  outline: 1px solid red;
+  line-height: 1.2;
 }
 
-.card-items__list {
+.clothes__flex-container {
+  outline: 1px solid green;
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 17px;
+  justify-content: space-evenly;
+  padding-inline-start: 0;
 }
 
-.item {
-  border: 1px rgba(0, 0, 0, 0.3) solid;
-  overflow: hidden;
-  width: calc(100% * 0.25);
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.3);
+.clothes__item {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  /* overflow: hidden; */
+  width: 325px;
+  height: 328px;
+  flex-shrink: 0;
+  /* position: relative; */
+  background-color: #E9E9E9;
   border-radius: 20px;
-  flex-grow: 1;
-  display: inline-block;
+  /* display: inline-block; */
 }
-
-/* .card-items__list {
-display: flex;
-flex-wrap: wrap;
-list-style-type: none;
-gap: 0px;
-}
-
-.item {
-  width: 25%;
-  box-sizing: border-box;
-} */

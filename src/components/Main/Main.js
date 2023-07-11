@@ -3,19 +3,18 @@ import Weather from "../Weather/Weather";
 import './Main.css';
 
 function Main({temperature, clothes}) {
+  // const appropriateClothing = clothes.filter(clothing => clothing.weather === weather);
   return (
-    <main>
-        <Weather day={true} type='sunny' temperature={temperature}></Weather>
-        <section className='card-items'>
-          <p className='card-items__message'>Today is {temperature}&#176;F / You may want to wear:</p>
-          <ul className='card-items__list'>
-            {clothes.map((item) => (
-              <li className='item' key={item._id}>
-                <ItemCard link={item.link} name={item.name}></ItemCard>
-              </li>
-            ))}
-          </ul>
-        </section>
+    <main className="Main">
+      <Weather day={true} type='sunny' temperature={temperature}></Weather>
+      <section className='clothes'>
+        <p className='clothes__message'>Today is {temperature}&#176;F / You may want to wear:</p>
+        <ul className='clothes__flex-container'>
+          {clothes.map(item =>
+              <ItemCard name={item.name} link={item.link} key={item._id}/>
+          )}
+        </ul>
+      </section>
     </main>
   );
 }
