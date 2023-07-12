@@ -10,4 +10,9 @@
   background-color: rgba(0, 0, 0,  0.5);
 }
 
-/*Add styles to modal__content*/
+.modal__content {
+  background-color: #FFF;
+  max-width: 496px;
+  width: 100%;
+  padding: 28px 28px 36px;
+}
