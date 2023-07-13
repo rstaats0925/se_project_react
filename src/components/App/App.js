@@ -13,6 +13,10 @@ function App() {
   const handleCreateModal = () => {
     setActiveModal('create');
   }
+
+  const handleCloseModal = () => {
+    setActiveModal('');
+  }
   const temp = "78"
   return (
     <div className="App">
@@ -20,7 +24,7 @@ function App() {
       <Main temperature={temp} clothes={items}/>
       <Footer/>
       {activeModal === 'create' && (
-      <ModalWithForm name="New Garment" buttonText="Add Garment" title="New Garment">
+      <ModalWithForm name="New Garment" buttonText="Add Garment" title="New Garment" onClose={handleCloseModal}>
         <div className='input-block'>
           <label for="Name" className='input-block__label'>Name</label>
           <input 
