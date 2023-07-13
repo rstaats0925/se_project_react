@@ -6,7 +6,7 @@ import avatar from '../../images/avatar.svg';
 const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });
   
 
-function Header() {
+function Header({onCreateModal}) {
   return (
     <div className="header">
       <div className='logo'>
@@ -15,7 +15,7 @@ function Header() {
       </div>
       <div className='header__user'>
         <div className='header__button-username'>
-          <button className='header__add-clothes' type="button">+ Add clothes</button>
+          <button className='header__add-clothes' type="button" onClick={onCreateModal}>+ Add clothes</button>
           <div className='header__username'>Terrence Tegegne</div>
         </div>
         <div className='header__avatar-container'><img className='avatar' src={avatar} alt="avatar"></img></div>

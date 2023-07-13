@@ -12,7 +12,44 @@
 
 .modal__content {
   background-color: #FFF;
+  box-sizing: border-box;
   max-width: 496px;
   width: 100%;
   padding: 28px 28px 36px;
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.modal__close-button {
+  background-image: url('../../images/close-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  box-sizing: border-box;
+  padding: 2px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  position: absolute;
+  top: 20px;
+  right: 28px;
+}
+
+.modal__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.modal__submit-button {
+  margin-top: 32px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+.modal__submit-button:hover {
+  cursor: pointer;
 }
