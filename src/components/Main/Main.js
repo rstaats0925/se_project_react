@@ -20,8 +20,8 @@ function Main({temperature, clothes}) {
         <p className='clothes__message'>Today is {temperature}&#176;F / You may want to wear:</p>
         <ul className='clothes__flex-container'>
           {clothes.map(item =>
-            <li key={item._id} className="clothes__item" style={{backgroundImage:`url(${item.link})`}}>
-              <ItemCard name={item.name}/>
+            <li>
+              <ItemCard/>
             </li>
           )}
         </ul>

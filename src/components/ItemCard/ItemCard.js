@@ -1,9 +1,12 @@
 import React from 'react';
 import './ItemCard.css';
 
-function ItemCard ({name, imgSrc}) {
+function ItemCard ({}) {
   return (
-      <p className='item__name'>{name}</p>
+      <div className='ItemCard'>
+        <img className='ItemCard__image'/>
+        <p className='ItemCard__name'></p>
+      </div>
   );
 }
 
