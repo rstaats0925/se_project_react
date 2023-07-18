@@ -19,11 +19,13 @@ function Main({temperature, clothes}) {
       <section className='clothes'>
         <p className='clothes__message'>Today is {temperature}&#176;F / You may want to wear:</p>
         <ul className='clothes__flex-container'>
-          {clothes.map(item =>
-            <li>
-              <ItemCard/>
-            </li>
-          )}
+          {clothes.map(item => {
+            return (
+              <li className="clothes__item" key={item._id}>
+                <ItemCard name={item.name} link={item.link}/>
+              </li>
+            )
+          })}
         </ul>
       </section>
     </main>
