@@ -11,7 +11,7 @@ import './Main.css';
   }
 */
 
-function Main({temperature, clothes}) {
+function Main({temperature, clothes, onSelectedCard}) {
   // const appropriateClothing = clothes.filter(clothing => clothing.weather === weather);
   return (
     <main className="Main">
@@ -22,7 +22,7 @@ function Main({temperature, clothes}) {
           {clothes.map(item => {
             return (
               <li className="clothes__item" key={item._id}>
-                <ItemCard name={item.name} link={item.link}/>
+                <ItemCard item={item} onSelectedCard={onSelectedCard}/>
               </li>
             )
           })}

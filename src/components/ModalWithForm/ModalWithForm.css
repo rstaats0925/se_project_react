@@ -22,7 +22,7 @@
 }
 
 .modal__close-button {
-  background-image: url('../../images/close-icon.svg');
+  background-image: url('../../images/ItemModalCloseButton.svg');
   background-repeat: no-repeat;
   background-position: center;
   box-sizing: border-box;

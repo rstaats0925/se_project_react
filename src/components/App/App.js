@@ -5,10 +5,12 @@ import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
 import defaultClothingItems from '../../utils/utils.js';
+import ItemModal from '../ItemModal/ItemModal';
 
 function App() {
   const [items, setItems] = React.useState(defaultClothingItems);
   const [activeModal, setActiveModal] = React.useState('');
+  const [selectedCard, setSelectedCard] = React.useState({});
 
   const handleCreateModal = () => {
     setActiveModal('create');
@@ -17,11 +19,17 @@ function App() {
   const handleCloseModal = () => {
     setActiveModal('');
   }
+
+  const handleSelectedCard = (card) => {
+    setActiveModal("preview");
+    setSelectedCard(card);
+  }
+
   const temp = "78"
   return (
     <div className="App">
       <Header onCreateModal={handleCreateModal}/>
-      <Main temperature={temp} clothes={items}/>
+      <Main temperature={temp} clothes={items} onSelectedCard={handleSelectedCard}/>
       <Footer/>
       {activeModal === 'create' && (
       <ModalWithForm name="New Garment" buttonText="Add Garment" title="New Garment" onClose={handleCloseModal}>
@@ -77,6 +85,9 @@ function App() {
           <label for="Cold" className='radio-block__label'>Cold</label>
         </div>
       </ModalWithForm>)}
+      {activeModal === 'preview' && (
+        <ItemModal selectedCard={selectedCard} onClose={handleCloseModal}/>
+      )}
     </div>
   );
 }
