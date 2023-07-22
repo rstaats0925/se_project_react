@@ -4,7 +4,6 @@
 
 .ItemModal__content {
   padding: 0 0 32px;
-  outline: 1px solid red;
   max-height: 610px;
   position: relative;
 }
