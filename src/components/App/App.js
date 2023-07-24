@@ -4,7 +4,7 @@ import Header from '../Header/Header.js';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
-import defaultClothingItems from '../../utils/constants.js';
+import {defaultClothingItems} from '../../utils/constants.js';
 import { getForcastWeather, parseWeatherData } from '../../utils/Api.js';
 import ItemModal from '../ItemModal/ItemModal';
 
@@ -28,9 +28,13 @@ function App() {
   }
 
   React.useEffect(() => {
-    getForcastWeather().then(data => {
+    getForcastWeather()
+    .then(data => {
       const temperature = parseWeatherData(data);
       setTemp(temperature);
+    })
+    .catch(err => {
+      console.error(err);
     })
   }, []);
 
@@ -42,7 +46,7 @@ function App() {
       {activeModal === 'create' && (
       <ModalWithForm name="New Garment" buttonText="Add Garment" title="New Garment" onClose={handleCloseModal}>
         <div className='input-block'>
-          <label for="Name" className='input-block__label'>Name</label>
+          <label htmlFor="Name" className='input-block__label'>Name</label>
           <input 
           id="Name"
           name='Name'
@@ -52,7 +56,7 @@ function App() {
           />
         </div>
         <div className='input-block'>
-          <label for="Image" className='input-block__label'>Image</label>
+          <label htmlFor="Image" className='input-block__label'>Image</label>
           <input 
           id="Image"
           name='Image'
@@ -70,7 +74,7 @@ function App() {
           value='Hot'
           className='radio-block__input'
           />
-          <label for="Hot" className='radio-block__label'>Hot</label>
+          <label htmlFor="Hot" className='radio-block__label'>Hot</label>
         </div>
         <div className='radio-block'>
           <input 
@@ -80,7 +84,7 @@ function App() {
           value='Warm'
           className='radio-block__input'
           />
-          <label for="Warm" className='radio-block__label'>Warm</label>
+          <label htmlFor="Warm" className='radio-block__label'>Warm</label>
         </div>
         <div className='radio-block'>
           <input 
@@ -90,7 +94,7 @@ function App() {
           value='Cold'
           className='radio-block__input'
           />
-          <label for="Cold" className='radio-block__label'>Cold</label>
+          <label htmlFor="Cold" className='radio-block__label'>Cold</label>
         </div>
       </ModalWithForm>)}
       {activeModal === 'preview' && (

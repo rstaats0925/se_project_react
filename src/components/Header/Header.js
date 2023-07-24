@@ -8,7 +8,7 @@ const currentDate = new Date().toLocaleString('default', { month: 'long', day: '
 
 function Header({onCreateModal}) {
   return (
-    <div className="header">
+    <header className="header">
       <div className='logo'>
         <img src={logo} alt="logo" className='header__logo'></img>
         <div className='header__date'>{currentDate}, location</div>
@@ -20,7 +20,7 @@ function Header({onCreateModal}) {
         </div>
         <div className='header__avatar-container'><img className='avatar' src={avatar} alt="avatar"></img></div>
       </div>
-    </div>
+    </header>
   );
 }
 
