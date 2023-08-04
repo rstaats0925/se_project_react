@@ -1,0 +1,58 @@
+.Toggle {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.Toggle__checkbox {
+  border-radius: 20px;
+  border: 2px solid #7E7E7E;
+  width: 56px;
+  height: 28px;
+  appearance: none;
+}
+
+.Toggle__slider {
+  width: 28px;
+  height: 28px;
+  border-radius: 20px;
+  background-color: #000;
+  position: absolute;
+}
+
+.Toggle__slider-F {
+  left: 0px;
+}
+
+.Toggle__slider-C {
+  right: 0;
+}
+
+.Toggle__F {
+  margin: 0;
+  position: absolute;
+  left: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.Toggle__C {
+  margin: 0;
+  position: absolute;
+  right: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.font_active {
+  color: #FFF;
+}
+
+.font_inactive {
+  color: rgba(0, 0, 0, 0.5);
+}

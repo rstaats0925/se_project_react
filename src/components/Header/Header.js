@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.css';
 import logo from '../../images/wtwr.svg';
 import avatar from '../../images/avatar.svg';
+import Toggle from '../Toggle/Toggle';
 
 const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });
   
@@ -15,6 +16,7 @@ function Header({onCreateModal}) {
       </div>
       <div className='header__user'>
         <div className='header__button-username'>
+          <Toggle />
           <button className='header__add-clothes' type="button" onClick={onCreateModal}>+ Add clothes</button>
           <div className='header__username'>Terrence Tegegne</div>
         </div>
