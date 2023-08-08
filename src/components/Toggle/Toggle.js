@@ -1,23 +1,25 @@
 import React from 'react';
 import './Toggle.css';
+import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext.js';
 
 function Toggle () {
 
-  const [tempUnit, setTempUnit] = React.useState('F');
+  const temperatureUnit = React.useContext(CurrentTemperatureUnitContext);
 
-  function handleClick() {
-    if (tempUnit === 'F') setTempUnit('C');
-    if (tempUnit === 'C') setTempUnit('F');
-
-    console.log(tempUnit);
+  function handleClick () {
+    if (temperatureUnit.currentTemperatureUnit === 'F') {
+      temperatureUnit.handleToggleSwitchChange();
+    } else if (temperatureUnit.currentTemperatureUnit === 'C') {
+      temperatureUnit.handleToggleSwitchChange();
+    }
   }
 
   return (
     <label className='Toggle'>
-      <input type='checkbox'  className='Toggle__checkbox' onChange={handleClick} />
-      <span className={tempUnit === 'F' ? "Toggle__slider Toggle__slider-F":"Toggle__slider Toggle__slider-C"}/>
-      <p className={tempUnit === 'F' ? "Toggle__F font_active":"Toggle__F font_inactive"}>F</p>
-      <p className={tempUnit === 'F' ? "Toggle__C font_inactive":"Toggle__C font_active"}>C</p>
+      <input type='checkbox'  className='Toggle__checkbox' onClick={handleClick} />
+      <span className={temperatureUnit.currentTemperatureUnit === 'F' ? "Toggle__slider Toggle__slider-F":"Toggle__slider Toggle__slider-C"}/>
+      <p className={temperatureUnit.currentTemperatureUnit === 'F' ? "Toggle__C font_inactive":"Toggle__C font_active"}>C</p>
+      <p className={temperatureUnit.currentTemperatureUnit === 'F' ? "Toggle__F font_active":"Toggle__F font_inactive"}>F</p>
     </label>
   );
 }
