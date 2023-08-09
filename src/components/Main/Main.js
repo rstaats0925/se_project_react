@@ -2,28 +2,24 @@ import ItemCard from "../ItemCard/ItemCard";
 import Weather from "../Weather/Weather";
 import './Main.css';
 import React from 'react';
-// import { weatherType } from "../../utils/Api.js";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
-/*
-  {
-    _id: 0,
-    name: "Cap",
-    weather: "hot",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Cap.png?etag=f3dad389b22909cafa73cff9f9a3d591",
-  }
-*/
+
 
 function Main({temperature, clothes, onSelectedCard}) {
-  // const appropriateClothing = clothes.filter(clothing => clothing.weather === weather);
+
+  const {currentTemperatureUnit} = React.useContext(CurrentTemperatureUnitContext);
+  const fahrenheit = temperature.F;
+
   const weatherType = React.useMemo(() => {
-    if (temperature < 50) {
+    if (fahrenheit < 50) {
       return "cold";
-    } else if (temperature >= 50 && temperature < 70 ) {
+    } else if (fahrenheit >= 50 && fahrenheit < 70 ) {
       return "warm";
-    } else if (temperature >= 70) {
+    } else if (fahrenheit >= 70) {
       return "hot";
     }
-  }, [temperature]);
+  }, [temperature.F]);
 
   const appropriateClothing = clothes.filter(clothing => {
     return clothing.weather === weatherType;
@@ -33,7 +29,7 @@ function Main({temperature, clothes, onSelectedCard}) {
     <main className="Main">
       <Weather day={true} type='sunny' temperature={temperature}></Weather>
       <section className='clothes'>
-        <p className='clothes__message'>Today is {temperature}&#176;F / You may want to wear:</p>
+        <p className='clothes__message'>Today is {temperature[currentTemperatureUnit]}&#176;{currentTemperatureUnit} / You may want to wear:</p>
         <ul className='clothes__flex-container'>
           {appropriateClothing.map(item => {
             return (

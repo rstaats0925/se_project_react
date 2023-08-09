@@ -1,8 +1,10 @@
 import React from 'react';
 import './Weather.css';
 import { weatherOptions } from '../../utils/constants.js';
+import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext';
 
 function Weather ({day, type, temperature}) {
+  const {currentTemperatureUnit} = React.useContext(CurrentTemperatureUnitContext);
   const weatherObj = weatherOptions.filter((obj) => {
     return obj.day === day && obj.type === type;
   });
@@ -12,7 +14,7 @@ function Weather ({day, type, temperature}) {
   return (
     <div className='weather'>
       <img className='weather__image' src={weatherSrc} alt="current weather"/>
-      <p className='weather__temperature'>{temperature}&#176;F</p>
+      <p className='weather__temperature'>{temperature[currentTemperatureUnit]}&#176;{currentTemperatureUnit}</p>
     </div>
   );
 }
