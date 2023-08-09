@@ -30,12 +30,9 @@ function App() {
   }
 
   const handleToggleSwitchChange = () => {
-    
-    if (currentTemperatureUnit === 'F') {
-      setCurrentTemperatureUnit('C');
-    } else if (currentTemperatureUnit === 'C') {
-      setCurrentTemperatureUnit('F');
-    }
+    currentTemperatureUnit = 'F'
+      ? setCurrentTemperatureUnit('C')
+      : setCurrentTemperatureUnit('F');
   }
 
   React.useEffect(() => {
