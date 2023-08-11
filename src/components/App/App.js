@@ -33,7 +33,7 @@ function App() {
     currentTemperatureUnit = 'F'
       ? setCurrentTemperatureUnit('C')
       : setCurrentTemperatureUnit('F');
-  }
+  };
 
   React.useEffect(() => {
     getForcastWeather()
