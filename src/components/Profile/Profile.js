@@ -7,4 +7,4 @@ function Profile() {
   )
 }
 
-export default Profiler;
+export default Profile;

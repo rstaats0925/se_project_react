@@ -2,12 +2,15 @@ import './App.css';
 import React from 'react';
 import Header from '../Header/Header.js';
 import Main from '../Main/Main';
+import Profile from '../Profile/Profile.js';
 import Footer from '../Footer/Footer';
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
 import {defaultClothingItems} from '../../utils/constants.js';
 import { getForcastWeather, parseWeatherData } from '../../utils/Api.js';
 import ItemModal from '../ItemModal/ItemModal';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext.js';
+import { Route } from 'react-router-dom';
+
 
 function App() {
   const [items, setItems] = React.useState(defaultClothingItems);
@@ -50,7 +53,12 @@ function App() {
     <div className="App">
       <CurrentTemperatureUnitContext.Provider value={{currentTemperatureUnit, handleToggleSwitchChange}}>
         <Header onCreateModal={handleCreateModal}/>
-        <Main temperature={temp} clothes={items} onSelectedCard={handleSelectedCard}/>
+        <Route exact path='/'>
+          <Main temperature={temp} clothes={items} onSelectedCard={handleSelectedCard}/>
+        </Route>
+        <Route>
+          <Profile path='/profile'/>
+        </Route>
         <Footer/>
         {activeModal === 'create' && (
         <ModalWithForm name="New Garment" buttonText="Add Garment" title="New Garment" onClose={handleCloseModal}>
