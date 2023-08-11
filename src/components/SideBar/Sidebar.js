@@ -1,9 +1,11 @@
-import React from './react';
-import './SideBar.css';
+import React from 'react';
+import './Sidebar.css';
 
 function Sidebar() {
   return (
-    <div>Sidebar</div>
+    <>
+      <div>SideBar</div>
+    </>
   )
 }
 

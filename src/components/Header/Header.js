@@ -12,7 +12,7 @@ function Header({onCreateModal}) {
   return (
     <header className="header">
       <div className='logo'>
-        <Link to='/'>
+        <Link to="/">
           <img src={logo} alt="logo" className='header__logo'></img>
         </Link>
         <div className='header__date'>{currentDate}, location</div>
@@ -21,7 +21,7 @@ function Header({onCreateModal}) {
         <div className='header__button-username'>
           <Toggle />
           <button className='header__add-clothes' type="button" onClick={onCreateModal}>+ Add clothes</button>
-          <Link>
+          <Link to="/profile">
             <div className='header__username'>Terrence Tegegne</div>
           </Link>
         </div>

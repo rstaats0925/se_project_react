@@ -1,9 +1,11 @@
-import React from './react';
+import React from 'react';
 import './ClothesSection.css';
 
 function ClothesSection() {
   return (
-    <div>ClothesSection</div>
+    <>
+      <div>ClothesSection</div>
+    </>
   )
 }
 
