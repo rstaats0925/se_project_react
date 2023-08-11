@@ -6,13 +6,13 @@ function Toggle () {
 
   const {currentTemperatureUnit, handleToggleSwitchChange} = React.useContext(CurrentTemperatureUnitContext);
 
-  function handleToggleSwitchChange () {
-    if (currentTemperatureUnit === 'F') {
-      handleToggleSwitchChange();
-    } else if (currentTemperatureUnit === 'C') {
-      handleToggleSwitchChange();
-    }
-  }
+  // function handleToggleSwitchChange () {
+  //   if (currentTemperatureUnit === 'F') {
+  //     handleToggleSwitchChange();
+  //   } else if (currentTemperatureUnit === 'C') {
+  //     handleToggleSwitchChange();
+  //   }
+  // }
 
   return (
     <label className='Toggle'>

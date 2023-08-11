@@ -33,10 +33,18 @@ function App() {
   }
 
   const handleToggleSwitchChange = () => {
-    currentTemperatureUnit = 'F'
+    currentTemperatureUnit === 'F'
       ? setCurrentTemperatureUnit('C')
       : setCurrentTemperatureUnit('F');
   }
+
+  // function handleToggleSwitchChange () {
+  //   if (currentTemperatureUnit === 'F') {
+  //     handleToggleSwitchChange();
+  //   } else if (currentTemperatureUnit === 'C') {
+  //     handleToggleSwitchChange();
+  //   }
+  // }
 
   React.useEffect(() => {
     getForcastWeather()
