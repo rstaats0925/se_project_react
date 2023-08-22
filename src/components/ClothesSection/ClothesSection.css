@@ -1,0 +1,26 @@
+.clothesSection__message {
+  margin: 15px 20px 0 0;
+  font-size: 20px;
+  display: inline;
+}
+
+.clothesSection__button {
+  color: rgba(0, 0, 0, 0.60);
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  padding: none;
+}
+
+.clothesSection__button:hover {
+  cursor: pointer;
+}
+
+.clothesSection__flex-container {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 17px;
+  padding-inline-start: 0;
+}
