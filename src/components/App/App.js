@@ -9,7 +9,7 @@ import {defaultClothingItems} from '../../utils/constants.js';
 import { getForcastWeather, parseWeatherData } from '../../utils/Api.js';
 import ItemModal from '../ItemModal/ItemModal';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext.js';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 
 function App() {
@@ -38,14 +38,6 @@ function App() {
       : setCurrentTemperatureUnit('F');
   }
 
-  // function handleToggleSwitchChange () {
-  //   if (currentTemperatureUnit === 'F') {
-  //     handleToggleSwitchChange();
-  //   } else if (currentTemperatureUnit === 'C') {
-  //     handleToggleSwitchChange();
-  //   }
-  // }
-
   React.useEffect(() => {
     getForcastWeather()
     .then(data => {
@@ -61,12 +53,14 @@ function App() {
     <div className="App">
       <CurrentTemperatureUnitContext.Provider value={{currentTemperatureUnit, handleToggleSwitchChange}}>
         <Header onCreateModal={handleCreateModal}/>
-        <Route exact path='/'>
-          <Main temperature={temp} clothes={items} onSelectedCard={handleSelectedCard}/>
-        </Route>
-        <Route>
-          <Profile path='/profile'/>
-        </Route>
+        <Switch>
+          <Route exact path='/'>
+            <Main temperature={temp} clothes={items} onSelectedCard={handleSelectedCard}/>
+          </Route>
+          <Route>
+            <Profile temperature={temp} clothes={items} onSelectedCard={handleSelectedCard} path='/profile'/>
+          </Route>
+        </Switch>
         <Footer/>
         {activeModal === 'create' && (
         <ModalWithForm name="New Garment" buttonText="Add Garment" title="New Garment" onClose={handleCloseModal}>

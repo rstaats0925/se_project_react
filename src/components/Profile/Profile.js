@@ -3,12 +3,11 @@ import './Profile.css';
 import Sidebar from '../SideBar/Sidebar';
 import ClothesSection from '../ClothesSection/ClothesSection';
 
-function Profile() {
+function Profile({clothes, onSelectedCard, temperature}) {
   return (
     <div className='Profile'>
-      <div>Profile</div>
       <Sidebar />
-      <ClothesSection />
+      <ClothesSection clothes={clothes} onSelectedCard={onSelectedCard} temperature={temperature} />
     </div>
   )
 }

@@ -19,11 +19,19 @@ function Main({temperature, clothes, onSelectedCard}) {
     } else if (fahrenheit >= 70) {
       return "hot";
     }
-  }, [temperature.F]);
+  }, [fahrenheit]);
 
   const appropriateClothing = clothes.filter(clothing => {
     return clothing.weather === weatherType;
   });
+
+ const clothingItems = appropriateClothing.map(item => {
+    return (
+      <li className="clothes__item" key={item._id}>
+        <ItemCard item={item} onSelectedCard={onSelectedCard} />
+      </li>
+    )
+  })
 
   return (
     <main className="Main">
@@ -31,13 +39,7 @@ function Main({temperature, clothes, onSelectedCard}) {
       <section className='clothes'>
         <p className='clothes__message'>Today is {temperature[currentTemperatureUnit]}&#176;{currentTemperatureUnit} / You may want to wear:</p>
         <ul className='clothes__flex-container'>
-          {appropriateClothing.map(item => {
-            return (
-              <li className="clothes__item" key={item._id}>
-                <ItemCard item={item} onSelectedCard={onSelectedCard}/>
-              </li>
-            )
-          })}
+          {clothingItems}
         </ul>
       </section>
     </main>
