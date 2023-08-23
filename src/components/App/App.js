@@ -4,7 +4,6 @@ import Header from '../Header/Header.js';
 import Main from '../Main/Main';
 import Profile from '../Profile/Profile.js';
 import Footer from '../Footer/Footer';
-import ModalWithForm from '../ModalWithForm/ModalWithForm';
 import AddItemModal from '../AddItemModal/AddItemModal';
 import {defaultClothingItems} from '../../utils/constants.js';
 import { getForcastWeather, parseWeatherData } from '../../utils/Api.js';
@@ -39,6 +38,10 @@ function App() {
       : setCurrentTemperatureUnit('F');
   };
 
+  const addItem = (event) => {
+    console.log(event.target.value);
+  }
+
   React.useEffect(() => {
     getForcastWeather()
     .then(data => {
@@ -63,7 +66,7 @@ function App() {
           </Route>
         </Switch>
         <Footer/>
-        {activeModal === 'create' && (<AddItemModal onClose={handleCloseModal}/>)}
+        {activeModal === 'create' && (<AddItemModal onClose={handleCloseModal} onAddItem={addItem}/>)}
         {activeModal === 'preview' && (
           <ItemModal selectedCard={selectedCard} onClose={handleCloseModal}/>
         )}

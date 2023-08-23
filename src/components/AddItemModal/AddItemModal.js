@@ -2,9 +2,28 @@ import React from 'react';
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
 import './AddItemModal.css';
 
-function AddItemModal ({onClose}) {
+function AddItemModal ({onClose, onAddItem}) {
+
+  //declare state for each input field
+  const [name, setName] = React.useState("");
+
+  const handleNameChange = (event) => {
+    console.log(event.target.value);
+    setName(event.target.value);
+  }
+
+  // use a useEffect hook to reset the input field state to empty strings when 
+  // the modal is opened
+
+  // create onChange handlers corresponding to each state variable
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    onAddItem(event);
+  }
+
   return (
-    <ModalWithForm name="New Garment" buttonText="Add Garment" title="New Garment" onClose={onClose}>
+    <ModalWithForm name="New Garment" buttonText="Add Garment" title="New Garment" onClose={onClose} onSubmit={handleSubmit}>
       <div className='input-block'>
         <label htmlFor="Name" className='input-block__label'>Name</label>
         <input 
@@ -13,6 +32,7 @@ function AddItemModal ({onClose}) {
         type='text'
         placeholder='Name'
         className='input-block__input'
+        onChange={handleNameChange}
         />
       </div>
       <div className='input-block'>
