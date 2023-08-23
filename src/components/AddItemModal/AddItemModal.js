@@ -31,6 +31,7 @@ function AddItemModal ({onClose, onAddItem}) {
   function handleSubmit(event, values) {
     event.preventDefault();
     onAddItem(values);
+    onClose();
   }
 
   return (
