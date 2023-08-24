@@ -22,6 +22,10 @@
   right: 28px;
 }
 
+.ItemModal__close-button:hover {
+  cursor: pointer;
+}
+
 .ItemModal__image {
   width: 100%;
   border-radius: 16px;
@@ -40,4 +44,20 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 1.2;
+}
+
+.ItemModal__delete {
+  position: absolute;
+  right: 32px;
+  bottom: 68px;
+  color: #FF4D00;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 0;
+  border: none;
+}
+
+.ItemModal__delete:hover {
+  cursor: pointer;
 }
