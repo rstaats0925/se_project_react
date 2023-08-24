@@ -38,10 +38,14 @@ function App() {
       : setCurrentTemperatureUnit('F');
   };
 
-  const addItem = (item) => {
+  const handleAddItem = (item) => {
     item._id = items.length; 
     setItems([item, ...items]);
     console.log(items);
+  }
+
+  const handleDeleteItem = (item) => {
+    console.log("firing handleDeleteItem()");
   }
 
   React.useEffect(() => {
@@ -68,9 +72,9 @@ function App() {
           </Route>
         </Switch>
         <Footer/>
-        {activeModal === 'create' && (<AddItemModal onClose={handleCloseModal} onAddItem={addItem}/>)}
+        {activeModal === 'create' && (<AddItemModal onClose={handleCloseModal} onAddItem={handleAddItem} />)}
         {activeModal === 'preview' && (
-          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal}/>
+          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} onDeleteItem={handleDeleteItem}/>
         )}
       </CurrentTemperatureUnitContext.Provider>
     </div>
