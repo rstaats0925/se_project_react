@@ -38,8 +38,10 @@ function App() {
       : setCurrentTemperatureUnit('F');
   };
 
-  const addItem = (values) => {
-    console.log(values);
+  const addItem = (item) => {
+    item._id = items.length; 
+    setItems([item, ...items]);
+    console.log(items);
   }
 
   React.useEffect(() => {

@@ -6,8 +6,8 @@ function AddItemModal ({onClose, onAddItem}) {
 
   //declare state for each input field
   const [name, setName] = React.useState("");
-  const [url, setUrl] = React.useState("");
-  const [weatherType, setWeatherType] = React.useState("");
+  const [link, setLink] = React.useState("");
+  const [weather, setWeather] = React.useState("");
 
   // create onChange handlers corresponding to each state variable
   const handleNameChange = (event) => {
@@ -17,16 +17,13 @@ function AddItemModal ({onClose, onAddItem}) {
 
   const handleUrlChange = (event) => {
     console.log(event.target.value);
-    setUrl(event.target.value);
+    setLink(event.target.value);
   }
 
   const handleWeatherChange = (event) => {
     console.log(event.target.value);
-    setWeatherType(event.target.value);
+    setWeather(event.target.value);
   }
-
-  // use a useEffect hook to reset the input field state to empty strings when 
-  // the modal is opened
 
   function handleSubmit(event, values) {
     event.preventDefault();
@@ -35,7 +32,7 @@ function AddItemModal ({onClose, onAddItem}) {
   }
 
   return (
-    <ModalWithForm name="New Garment" buttonText="Add Garment" title="New Garment" onClose={onClose} onSubmit={(event) => {handleSubmit(event, {name, url, weatherType})}}>
+    <ModalWithForm name="New Garment" buttonText="Add Garment" title="New Garment" onClose={onClose} onSubmit={(event) => {handleSubmit(event, {name, link, weather})}}>
       <div className='input-block'>
         <label htmlFor="Name" className='input-block__label'>Name</label>
         <input 
@@ -65,7 +62,7 @@ function AddItemModal ({onClose, onAddItem}) {
           type='radio' 
           id='Hot' 
           name='weather' 
-          value='Hot'
+          value='hot'
           className='radio-block__input'
           />
           <label htmlFor="Hot" className='radio-block__label'>Hot</label>
@@ -75,7 +72,7 @@ function AddItemModal ({onClose, onAddItem}) {
           type='radio' 
           id='Warm' 
           name='weather' 
-          value='Warm'
+          value='warm'
           className='radio-block__input'
           />
           <label htmlFor="Warm" className='radio-block__label'>Warm</label>
@@ -85,7 +82,7 @@ function AddItemModal ({onClose, onAddItem}) {
           type='radio' 
           id='Cold' 
           name='weather' 
-          value='Cold'
+          value='cold'
           className='radio-block__input'
           />
           <label htmlFor="Cold" className='radio-block__label'>Cold</label>
