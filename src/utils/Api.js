@@ -1,5 +1,6 @@
 import React from 'react';
 // https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
+const baseUrl = 'http://localhost:3001';
 
 const latitude = 41.978050;
 const longitude = -91.669861;
@@ -26,6 +27,17 @@ export function parseWeatherData(data) {
   }};
 
   return weather.temperature;
+}
+
+export function getItems () {
+  return fetch(`${baseUrl}/items`)
+  .then(res => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      return Promise.reject(`Error: ${res.status}`);
+    }
+  })
 }
 
 // weather.temperature.F = `${Math.round(data.main.temp)}°F`;

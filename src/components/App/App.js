@@ -5,15 +5,15 @@ import Main from '../Main/Main';
 import Profile from '../Profile/Profile.js';
 import Footer from '../Footer/Footer';
 import AddItemModal from '../AddItemModal/AddItemModal';
-import {defaultClothingItems} from '../../utils/constants.js';
-import { getForcastWeather, parseWeatherData } from '../../utils/Api.js';
+// import {defaultClothingItems} from '../../utils/constants.js';
+import { getForcastWeather, parseWeatherData, getItems } from '../../utils/Api.js';
 import ItemModal from '../ItemModal/ItemModal';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext.js';
 import { Route, Switch } from 'react-router-dom';
 
 
 function App() {
-  const [items, setItems] = React.useState(defaultClothingItems);
+  const [items, setItems] = React.useState([]);
   const [activeModal, setActiveModal] = React.useState('');
   const [selectedCard, setSelectedCard] = React.useState({});
   const [temp, setTemp] = React.useState(69);
@@ -58,6 +58,16 @@ function App() {
     .then(data => {
       const temperature = parseWeatherData(data);
       setTemp(temperature);
+    })
+    .catch(err => {
+      console.error(err);
+    })
+  }, []);
+
+  React.useEffect(() => {
+    getItems()
+    .then(data => {
+      setItems(data);
     })
     .catch(err => {
       console.error(err);
