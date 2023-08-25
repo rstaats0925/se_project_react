@@ -8,7 +8,7 @@ function ItemModal ({selectedCard, onClose, onDeleteItem}) {
       <img className="ItemModal__image" src={selectedCard.link} alt={selectedCard.name}/>
       <p className="ItemModal__item-name">{selectedCard.name}</p>
       <p className="ItemModal__weather-type">Weather: {selectedCard.weather}</p>
-      <button className='ItemModal__delete' type='button' onClick={onDeleteItem}>Delete item</button>
+      <button className='ItemModal__delete' type='button' onClick={() => {onDeleteItem(selectedCard)}}>Delete item</button>
       </div>
     </div>
   )

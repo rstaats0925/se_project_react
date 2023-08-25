@@ -45,7 +45,12 @@ function App() {
   }
 
   const handleDeleteItem = (item) => {
-    console.log("firing handleDeleteItem()");
+    const updatedItemArray = items.filter(x => {
+      return x !== item;
+    });
+    
+    setItems(updatedItemArray);
+    handleCloseModal();
   }
 
   React.useEffect(() => {
