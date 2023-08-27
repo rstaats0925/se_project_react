@@ -1,4 +1,3 @@
-import React from 'react';
 // https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
 // to run the server use this command: json-server --watch db.json --id _id --port 3001
 const baseUrl = 'http://localhost:3001';
@@ -65,6 +64,3 @@ export function deleteItem(id) {
     return checkResponse(response); 
   })
 }
-
-// weather.temperature.F = `${Math.round(data.main.temp)}°F`;
-// weather.temperature.C = `${Math.round((data.main.temp - 32) * 5/9)}°C`;
