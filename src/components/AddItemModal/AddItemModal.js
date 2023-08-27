@@ -6,7 +6,7 @@ function AddItemModal ({onClose, onAddItem}) {
 
   //declare state for each input field
   const [name, setName] = React.useState("");
-  const [link, setLink] = React.useState("");
+  const [imageUrl, setImageUrl] = React.useState("");
   const [weather, setWeather] = React.useState("");
 
   // create onChange handlers corresponding to each state variable
@@ -17,7 +17,7 @@ function AddItemModal ({onClose, onAddItem}) {
 
   const handleUrlChange = (event) => {
     console.log(event.target.value);
-    setLink(event.target.value);
+    setImageUrl(event.target.value);
   }
 
   const handleWeatherChange = (event) => {
@@ -32,7 +32,7 @@ function AddItemModal ({onClose, onAddItem}) {
   }
 
   return (
-    <ModalWithForm name="New Garment" buttonText="Add Garment" title="New Garment" onClose={onClose} onSubmit={(event) => {handleSubmit(event, {name, link, weather})}}>
+    <ModalWithForm name="New Garment" buttonText="Add Garment" title="New Garment" onClose={onClose} onSubmit={(event) => {handleSubmit(event, {name, imageUrl, weather})}}>
       <div className='input-block'>
         <label htmlFor="Name" className='input-block__label'>Name</label>
         <input 

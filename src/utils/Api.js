@@ -6,15 +6,19 @@ const latitude = 41.978050;
 const longitude = -91.669861;
 const APIkey = "aec2c819324155eb39246a231740e274";
 
+function checkResponse (response) {
+  if (response.ok) {
+    return response.json();
+  } else {
+    return Promise.reject(`Error: ${response.status}`);
+  }
+}
+
 export function getForcastWeather () {
   const weatherApi = fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`)
     .then(res => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
+      return checkResponse(res);
     })
 
     return weatherApi;
@@ -32,11 +36,20 @@ export function parseWeatherData(data) {
 export function getItems () {
   return fetch(`${baseUrl}/items`)
   .then(res => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return Promise.reject(`Error: ${res.status}`);
+    return checkResponse(res);
+  })
+}
+
+export function postItems (item) {
+  return fetch(`${baseUrl}/items`, {
+    method: "POST",
+    body: JSON.stringify(item),
+    headers: {
+      "Content-Type": "application/json"
     }
+  })
+  .then(res => {
+    return checkResponse(res);
   })
 }
 
