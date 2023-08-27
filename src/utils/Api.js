@@ -1,5 +1,6 @@
 import React from 'react';
 // https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
+// to run the server use this command: json-server --watch db.json --id _id --port 3001
 const baseUrl = 'http://localhost:3001';
 
 const latitude = 41.978050;
@@ -35,8 +36,8 @@ export function parseWeatherData(data) {
 
 export function getItems () {
   return fetch(`${baseUrl}/items`)
-  .then(res => {
-    return checkResponse(res);
+  .then(response => {
+    return checkResponse(response);
   })
 }
 
@@ -48,8 +49,20 @@ export function postItems (item) {
       "Content-Type": "application/json"
     }
   })
-  .then(res => {
-    return checkResponse(res);
+  .then(response => {
+    return checkResponse(response);
+  })
+}
+
+export function deleteItem(id) {
+  return fetch(`${baseUrl}/items/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(response => {
+    return checkResponse(response); 
   })
 }
 

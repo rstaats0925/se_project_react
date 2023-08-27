@@ -6,7 +6,7 @@ import Profile from '../Profile/Profile.js';
 import Footer from '../Footer/Footer';
 import AddItemModal from '../AddItemModal/AddItemModal';
 // import {defaultClothingItems} from '../../utils/constants.js';
-import { getForcastWeather, parseWeatherData, getItems, postItems } from '../../utils/Api.js';
+import { getForcastWeather, parseWeatherData, getItems, postItems, deleteItem } from '../../utils/Api.js';
 import ItemModal from '../ItemModal/ItemModal';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext.js';
 import { Route, Switch } from 'react-router-dom';
@@ -51,11 +51,19 @@ function App() {
   }
 
   const handleDeleteItem = (item) => {
-    const updatedItemArray = items.filter(x => {
-      return x !== item;
-    });
-    
-    setItems(updatedItemArray);
+    deleteItem(item._id)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.error(err);
+    })
+
+    const updatedItemsArray = items.filter(i => {
+      return i != item;
+    })
+
+    setItems(updatedItemsArray);
     handleCloseModal();
   }
 
