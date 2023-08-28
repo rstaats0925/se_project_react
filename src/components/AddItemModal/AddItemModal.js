@@ -38,6 +38,7 @@ function AddItemModal ({onClose, onAddItem}) {
         placeholder='Name'
         className='input-block__input'
         onChange={handleNameChange}
+        value={name}
         />
       </div>
       <div className='input-block'>
@@ -49,6 +50,7 @@ function AddItemModal ({onClose, onAddItem}) {
         placeholder='Image URL'
         className='input-block__input'
         onChange={handleUrlChange}
+        value={imageUrl}
         />
       </div>
       <p className='weather-type__message'>Select the weather type:</p>
