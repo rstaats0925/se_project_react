@@ -51,18 +51,15 @@ function App() {
   const handleDeleteItem = (item) => {
     deleteItem(item._id)
     .then(res => {
-      console.log(res);
+      const updatedItemsArray = items.filter(i => {
+        return i != item;
+      })
+      setItems(updatedItemsArray);
+      handleCloseModal();
     })
     .catch(err => {
       console.error(err);
     })
-
-    const updatedItemsArray = items.filter(i => {
-      return i != item;
-    })
-
-    setItems(updatedItemsArray);
-    handleCloseModal();
   }
 
   React.useEffect(() => {
