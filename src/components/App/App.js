@@ -41,6 +41,7 @@ function App() {
     postItems(item)
     .then(res => {
       setItems([res, ...items]);
+      handleCloseModal();
     })
     .catch(err => {
       console.error(err);
