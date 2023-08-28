@@ -25,7 +25,7 @@ function Main({temperature, clothes, onSelectedCard}) {
     return clothing.weather === weatherType;
   });
 
- const clothingItems = appropriateClothing.map(item => {
+  const clothingItems = appropriateClothing.map(item => {
     return (
       <li className="clothes__item" key={item._id}>
         <ItemCard item={item} onSelectedCard={onSelectedCard} />
