@@ -2,7 +2,7 @@ import React from 'react';
 import ItemCard from '../ItemCard/ItemCard.js';
 import './ClothesSection.css';
 
-function ClothesSection({clothes, onSelectedCard, temperature}) {
+function ClothesSection({clothes, onSelectedCard, temperature, onCreateModal}) {
   const fahrenheit = temperature.F;
 
   const weatherType = React.useMemo(() => {
@@ -30,7 +30,7 @@ function ClothesSection({clothes, onSelectedCard, temperature}) {
   return (
     <div className='clothesSection'>
       <p className='clothesSection__message'>Your items</p>
-      <button className='clothesSection__button'>+ Add new</button>
+      <button className='clothesSection__button' onClick={onCreateModal}>+ Add new</button>
       <ul className='clothesSection__flex-container'>
         {clothingItems}
       </ul>

@@ -94,7 +94,7 @@ function App() {
             <Main temperature={temp} clothes={items} onSelectedCard={handleSelectedCard}/>
           </Route>
           <Route>
-            <Profile temperature={temp} clothes={items} onSelectedCard={handleSelectedCard} path='/profile'/>
+            <Profile temperature={temp} clothes={items} onSelectedCard={handleSelectedCard} onCreateModal={handleCreateModal} path='/profile'/>
           </Route>
         </Switch>
         <Footer/>

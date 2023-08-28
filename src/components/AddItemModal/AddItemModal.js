@@ -11,17 +11,14 @@ function AddItemModal ({onClose, onAddItem}) {
 
   // create onChange handlers corresponding to each state variable
   const handleNameChange = (event) => {
-    console.log(event.target.value);
     setName(event.target.value);
   }
 
   const handleUrlChange = (event) => {
-    console.log(event.target.value);
     setImageUrl(event.target.value);
   }
 
   const handleWeatherChange = (event) => {
-    console.log(event.target.value);
     setWeather(event.target.value);
   }
 
