@@ -1,9 +1,9 @@
 import React from 'react';
-import './Weather.css';
+import './WeatherCard.css';
 import { weatherOptions } from '../../utils/constants.js';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext';
 
-function Weather ({day, type, temperature}) {
+function WeatherCard ({day, type, temperature}) {
   const {currentTemperatureUnit} = React.useContext(CurrentTemperatureUnitContext);
   const weatherObj = weatherOptions.filter((obj) => {
     return obj.day === day && obj.type === type;
@@ -19,4 +19,4 @@ function Weather ({day, type, temperature}) {
   );
 }
 
-export default Weather;
+export default WeatherCard;

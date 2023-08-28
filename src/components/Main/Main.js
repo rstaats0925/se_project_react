@@ -1,5 +1,5 @@
 import ItemCard from "../ItemCard/ItemCard";
-import Weather from "../Weather/Weather";
+import WeatherCard from "../WeatherCard/WeatherCard";
 import './Main.css';
 import React from 'react';
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
@@ -35,7 +35,7 @@ function Main({temperature, clothes, onSelectedCard}) {
 
   return (
     <main className="Main">
-      <Weather day={true} type='sunny' temperature={temperature}></Weather>
+      <WeatherCard day={true} type='sunny' temperature={temperature}></WeatherCard>
       <section className='clothes'>
         <p className='clothes__message'>Today is {temperature[currentTemperatureUnit]}&#176;{currentTemperatureUnit} / You may want to wear:</p>
         <ul className='clothes__flex-container'>
