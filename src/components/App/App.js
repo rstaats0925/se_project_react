@@ -5,16 +5,19 @@ import Main from '../Main/Main';
 import Profile from '../Profile/Profile.js';
 import Footer from '../Footer/Footer';
 import AddItemModal from '../AddItemModal/AddItemModal';
+import LoginModal from '../LoginModal/LoginModal';
 import { getForcastWeather, parseWeatherData, getItems, postItems, deleteItem } from '../../utils/Api.js';
 import ItemModal from '../ItemModal/ItemModal';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext.js';
 import { Route, Switch } from 'react-router-dom';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 
 function App() {
   const [items, setItems] = React.useState([]);
   const [activeModal, setActiveModal] = React.useState('');
   const [selectedCard, setSelectedCard] = React.useState({});
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [temp, setTemp] = React.useState(69);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = React.useState('F');
 
@@ -91,15 +94,16 @@ function App() {
           <Route exact path='/'>
             <Main temperature={temp} clothes={items} onSelectedCard={handleSelectedCard}/>
           </Route>
-          <Route>
+          <ProtectedRoute isLoggedIn={isLoggedIn} path="/">
             <Profile temperature={temp} clothes={items} onSelectedCard={handleSelectedCard} onCreateModal={handleCreateModal} path='/profile'/>
-          </Route>
+          </ProtectedRoute>
         </Switch>
         <Footer/>
         {activeModal === 'create' && (<AddItemModal onClose={handleCloseModal} onAddItem={handleAddItem} />)}
         {activeModal === 'preview' && (
-          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} onDeleteItem={handleDeleteItem}/>
+          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} onDeleteItem={handleDeleteItem} />
         )}
+        {activeModal === 'login' && (<LoginModal onClose={handleCloseModal} />)}
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );
