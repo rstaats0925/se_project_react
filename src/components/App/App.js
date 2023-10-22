@@ -15,7 +15,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
   const [items, setItems] = React.useState([]);
-  const [activeModal, setActiveModal] = React.useState('login');
+  const [activeModal, setActiveModal] = React.useState('');
   const [selectedCard, setSelectedCard] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [temp, setTemp] = React.useState(69);
