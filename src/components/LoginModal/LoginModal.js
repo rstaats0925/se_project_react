@@ -5,28 +5,30 @@ import './LoginModal.css';
 function LoginModal({onClose}) {
   return (
     <ModalWithForm name="signUp" buttonText="Next" title="Log in" onClose={onClose}>
-      <div className='form'>
-        <div className='form__input-block'>
-          <label htmlFor='email' className='input-block__label'>Email</label>
+        <div className='input-field'>
+          <label htmlFor='email' className='input-field__label'>Email</label>
           <input
           id='email'
           name='email'
           type='email'
           placeholder='Email'
-          className='input-block__input'
+          className='input-field__input'
           />
         </div>
-        <div className='form__input-block'>
-          <label htmlFor='password' className='input-block__label'>Password</label>
+        <div className='input-field'>
+          <label htmlFor='password' className='input-field__label'>Password</label>
           <input
           type='password'
           id='password'
           name='password'
           placeholder='Password'
-          className='input-block__input'
+          className='input-field__input'
            />
         </div>
-      </div>
+        <div className='button-container'>
+          <button className='button-container__login' type="submit">Log in</button>
+          <button className='button-container__register'>or Register</button>
+        </div>
     </ModalWithForm>
   )
 }

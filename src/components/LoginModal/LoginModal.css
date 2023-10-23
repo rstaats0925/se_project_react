@@ -1,12 +1,40 @@
-.input-block__label {
-  color: #000;
-  font-weight: 700;
-  line-height: 1.25;
-  margin: 24px 0 0 0;
+.input-field {
+  margin-top: 24px;
 }
 
-.input-block__input {
+.input-field__label {
+  display: block;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.input-field__input {
+  margin-top: 8px;
   border: none;
   border-bottom: 1px solid #000;
-  margin-top: 8px;
+  width: 100%;
+}
+
+.button-container {
+  margin-top: 32px;
+  display: flex;
+  column-gap: 12px;
+}
+
+.button-container__login {
+  border-radius: 4px;
+  background-color: #000;
+  color: #FFF;
+  padding: 8px 16px;
+  border: none;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.button-container__register {
+  border: none;
+  font-weight: 700;
+  line-height: 1.25;
+  color: rgba(0, 0, 0, 0.50);
+  background-color: #FFF;
 }

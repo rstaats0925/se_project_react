@@ -17,7 +17,7 @@ import { signUp } from '../../utils/Auth';
 
 function App() {
   const [items, setItems] = React.useState([]);
-  const [activeModal, setActiveModal] = React.useState('');
+  const [activeModal, setActiveModal] = React.useState('login');
   const [selectedCard, setSelectedCard] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [temp, setTemp] = React.useState(69);
