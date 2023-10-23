@@ -11,6 +11,8 @@ import ItemModal from '../ItemModal/ItemModal';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext.js';
 import { Route, Switch } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import RegisterModal from '../RegisterModal/RegisterModal';
+import { signUp } from '../../utils/Auth';
 
 
 function App() {
@@ -105,6 +107,7 @@ function App() {
         )}
         {activeModal === 'login' && (<LoginModal onClose={handleCloseModal} />)}
       </CurrentTemperatureUnitContext.Provider>
+        {activeModal === 'register' && <RegisterModal onClose={handleCloseModal} onRegister={signUp} />}
     </div>
   );
 }
