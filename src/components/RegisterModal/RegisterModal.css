@@ -1,10 +1,15 @@
+.input-block {
+  
+}
+
 .input-block__label {
-  display: block;
-  font-weight: 700;
-  line-height: 1.25;
+
 }
 
 .input-block__input {
-  border: none;
-  border-bottom: 1px solid #000;
+
+}
+
+.button-container {
+
 }

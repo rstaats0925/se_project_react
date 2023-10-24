@@ -33,10 +33,10 @@ function RegisterModal({ onClose, onRegister }) {
 
   return (
     <ModalWithForm buttonText='Next' title='Sign up' onClose={onClose} onSubmit={event => handleSubmit(event, {name, avatar, email, password})}>
-      <div className='input-block'>
-        <label className='input-block__label' htmlFor='registerEmail'>Email*</label>
+      <div className='input-field'>
+        <label className='input-field__label' htmlFor='registerEmail'>Email*</label>
         <input
-        className='input-block__input'
+        className='input-field__input'
         placeholder='Email'
         type='email'
         name='email'
@@ -45,10 +45,10 @@ function RegisterModal({ onClose, onRegister }) {
         value={email}
         />
       </div>
-      <div className='input-block'>
-        <label className='input-block__label' htmlFor='Registerpassword'>Password*</label>
+      <div className='input-field'>
+        <label className='input-field__label' htmlFor='Registerpassword'>Password*</label>
         <input
-        className='input-block__input'
+        className='input-field__input'
         placeholder='Password'
         type='password'
         id='Registerpassword'
@@ -57,10 +57,10 @@ function RegisterModal({ onClose, onRegister }) {
         value={password}
         />
       </div>
-      <div className='input-block'>
-        <label className='input-block__label' htmlFor='registerName'>Name</label>
+      <div className='input-field'>
+        <label className='input-field__label' htmlFor='registerName'>Name*</label>
         <input
-        className='input-block__input'
+        className='input-field__input'
         placeholder='Name'
         type='text'
         name='name'
@@ -69,10 +69,10 @@ function RegisterModal({ onClose, onRegister }) {
         value={name}
         />
       </div>
-      <div className='input-block'>
-        <label className='input-block__label' htmlFor='registerAvatar'>Avatar URL</label>
+      <div className='input-field'>
+        <label className='input-field__label' htmlFor='registerAvatar'>Avatar URL*</label>
         <input
-        className='input-block__input'
+        className='input-field__input'
         placeholder='Avatar URL'
         type='url'
         name='avatar'
@@ -80,6 +80,10 @@ function RegisterModal({ onClose, onRegister }) {
         onChange={handleAvatarChange}
         value={avatar}
         />
+      </div>
+      <div className='button-container'>
+        <button className='button-container__login'>Next</button>
+        <button className='button-container__register'>or Log in</button>
       </div>
     </ModalWithForm>
   )
