@@ -2,7 +2,7 @@ import React from 'react';
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
 import './LoginModal.css';
 
-function LoginModal({onClose}) {
+function LoginModal({onClose, handleRegister}) {
   return (
     <ModalWithForm name="signUp" buttonText="Next" title="Log in" onClose={onClose}>
         <div className='input-field'>
@@ -27,7 +27,7 @@ function LoginModal({onClose}) {
         </div>
         <div className='button-container'>
           <button className='button-container__login' type="submit">Log in</button>
-          <button className='button-container__register'>or Register</button>
+          <button className='button-container__register' type='button' onClick={handleRegister}>or Register</button>
         </div>
     </ModalWithForm>
   )

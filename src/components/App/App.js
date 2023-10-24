@@ -27,6 +27,16 @@ function App() {
     setActiveModal('create');
   }
 
+  const handleLogInModal = () => {
+    setActiveModal('');
+    setActiveModal('login')
+  }
+
+  const handleRegisterModal = () => {
+    setActiveModal('');
+    setActiveModal('register');
+  }
+
   const handleCloseModal = () => {
     setActiveModal('');
   }
@@ -105,9 +115,9 @@ function App() {
         {activeModal === 'preview' && (
           <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} onDeleteItem={handleDeleteItem} />
         )}
-        {activeModal === 'login' && (<LoginModal onClose={handleCloseModal} />)}
+        {activeModal === 'login' && (<LoginModal onClose={handleCloseModal} handleRegister={handleRegisterModal}/>)}
       </CurrentTemperatureUnitContext.Provider>
-        {activeModal === 'register' && <RegisterModal onClose={handleCloseModal} onRegister={signUp} />}
+        {activeModal === 'register' && <RegisterModal onClose={handleCloseModal} onRegister={signUp} handleLogin={handleLogInModal}/>}
     </div>
   );
 }

@@ -31,10 +31,18 @@
   line-height: 1.25;
 }
 
+.button-container__login:hover {
+  cursor: pointer;
+}
+
 .button-container__register {
   border: none;
   font-weight: 700;
   line-height: 1.25;
   color: rgba(0, 0, 0, 0.50);
   background-color: #FFF;
+}
+
+.button-container__register:hover {
+  cursor: pointer;
 }
