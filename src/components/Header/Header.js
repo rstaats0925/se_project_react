@@ -4,6 +4,7 @@ import logo from '../../images/wtwr.svg';
 import avatar from '../../images/avatar.svg';
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import { Link } from 'react-router-dom'; 
+import AvatarPlaceHolder from '../AvatarPlaceHolder/AvatarPlaceHolder';
 
 const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });
 // Terrence Tegegne
@@ -25,7 +26,8 @@ function Header({onCreateModal, user}) {
             <div className='header__username'>Terrence Tegegne</div>
           </Link>
         </div>
-        <div className='header__avatar-container'><img className='avatar' src={avatar} alt="avatar"></img></div>
+        {/* <div className='header__avatar-container'><img className='avatar' src={avatar} alt="avatar"></img></div> */}
+        <AvatarPlaceHolder name="Terence"/>
       </div>
     </header>
   );

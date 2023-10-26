@@ -1,9 +1,9 @@
 import React from 'react';
-import './AvatarPlaceHolder';
+import './AvatarPlaceHolder.css';
 
-function AvatarPlaceHolder(name) {
+function AvatarPlaceHolder({name}) {
   return (
-    <div>
+    <div className='placeholder'>
       {name[0]}
     </div>
   );
