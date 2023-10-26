@@ -12,7 +12,7 @@ import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnit
 import { Route, Switch } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import RegisterModal from '../RegisterModal/RegisterModal';
-import { signUp } from '../../utils/Auth';
+import { signUp, signIn, verifyToken } from '../../utils/Auth';
 
 
 function App() {
@@ -39,6 +39,26 @@ function App() {
 
   const handleCloseModal = () => {
     setActiveModal('');
+  }
+
+  const processRegistration = (values) => {
+    return signUp(values)
+      .then(res => {
+        handleCloseModal();
+        handleSignIn(values);
+      })
+      .catch(err => console.error(`Error: ${err.message}`));
+  }
+
+  const handleSignIn = (values) => {
+    signIn(values)
+      .then(res => res.json())
+      .then(res => {
+        if (res.token) {
+          localStorage.setItem('jwt', res.token);
+        }
+      })
+      .catch(err => console.error(`Error: ${err.message}`));
   }
 
   const handleSelectedCard = (card) => {
@@ -98,6 +118,15 @@ function App() {
     })
   }, []);
 
+  React.useEffect(() => {
+    if (localStorage.getItem('jwt')) {
+      const token = localStorage.getItem('jwt');
+      verifyToken(token)
+        .then(res => res.json())
+        .then(user => console.log(user));
+    }
+  }, []);
+
   return (
     <div className="App">
       <CurrentTemperatureUnitContext.Provider value={{currentTemperatureUnit, handleToggleSwitchChange}}>
@@ -117,7 +146,7 @@ function App() {
         )}
         {activeModal === 'login' && (<LoginModal onClose={handleCloseModal} handleRegister={handleRegisterModal}/>)}
       </CurrentTemperatureUnitContext.Provider>
-        {activeModal === 'register' && <RegisterModal onClose={handleCloseModal} onRegister={signUp} handleLogin={handleLogInModal}/>}
+        {activeModal === 'register' && <RegisterModal onClose={handleCloseModal} onRegister={processRegistration} handleLogin={handleLogInModal}/>}
     </div>
   );
 }

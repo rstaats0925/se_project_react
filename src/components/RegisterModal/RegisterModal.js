@@ -28,7 +28,11 @@ function RegisterModal({ onClose, onRegister, handleLogin }) {
 
   const handleSubmit = (event, values) => {
     event.preventDefault();
-    onRegister(values);
+
+    onRegister(values)
+      .catch(err => {
+        console.error(`Error: ${err.message}`);
+      })
   }
 
   const handleClick =(event) => {
@@ -87,7 +91,7 @@ function RegisterModal({ onClose, onRegister, handleLogin }) {
         />
       </div>
       <div className='button-container'>
-        <button className='button-container__login'>Next</button>
+        <button className='button-container__login' onSubmit={(event => handleSubmit(event, {name, avatar, email, password}))}>Next</button>
         <button className='button-container__register' type='button' onClick={handleLogin}>or Log in</button>
       </div>
     </ModalWithForm>

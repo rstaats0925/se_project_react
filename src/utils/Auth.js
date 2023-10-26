@@ -20,5 +20,14 @@ export function signIn({email, password}) {
     },
     body: JSON.stringify({email, password})
   })
-  .then(res => res.json())
+}
+
+export function verifyToken(token) {
+  return fetch(`${baseUrl}/user/me`, {
+    method: 'GET',
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`
+    }
+  })
 }

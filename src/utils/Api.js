@@ -34,18 +34,9 @@ export function parseWeatherData(data) {
 }
 
 export function getItems () {
-  return fetch(`${baseUrl}/items`)
-  .then(response => {
-    return checkResponse(response);
-  })
-}
-
-export function postItems (item) {
   return fetch(`${baseUrl}/items`, {
-    method: "POST",
-    body: JSON.stringify(item),
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     }
   })
   .then(response => {
@@ -53,11 +44,26 @@ export function postItems (item) {
   })
 }
 
-export function deleteItem(id) {
+export function postItems (item, token) {
+  return fetch(`${baseUrl}/items`, {
+    method: "POST",
+    body: JSON.stringify(item),
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`
+    }
+  })
+  .then(response => {
+    return checkResponse(response);
+  })
+}
+
+export function deleteItem(id, token) {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`
     }
   })
   .then(response => {
