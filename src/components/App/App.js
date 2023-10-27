@@ -23,7 +23,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [temp, setTemp] = React.useState(69);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = React.useState('F');
-  const [currentUser, setCurrentUser] = React.useState({});
+  const [currentUser, setCurrentUser] = React.useState({name: "Terrence Tegegne"});
 
   const handleCreateModal = () => {
     setActiveModal('create');

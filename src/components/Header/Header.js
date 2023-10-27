@@ -5,11 +5,15 @@ import avatar from '../../images/avatar.svg';
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 import { Link } from 'react-router-dom'; 
 import AvatarPlaceHolder from '../AvatarPlaceHolder/AvatarPlaceHolder';
+import CurrentUserContext from '../../contexts/CurrentUserContext.js';
 
 const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });
 // Terrence Tegegne
 
 function Header({onCreateModal, user}) {
+
+  const currentUser = React.useContext(CurrentUserContext);
+
   return (
     <header className="header">
       <div className='logo'>
@@ -23,11 +27,11 @@ function Header({onCreateModal, user}) {
           <ToggleSwitch />
           <button className='header__add-clothes' type="button" onClick={onCreateModal}>+ Add clothes</button>
           <Link to="/profile">
-            <div className='header__username'>Terrence Tegegne</div>
+            <div className='header__username'>{currentUser.name}</div>
           </Link>
         </div>
         {/* <div className='header__avatar-container'><img className='avatar' src={avatar} alt="avatar"></img></div> */}
-        <AvatarPlaceHolder name="Terence"/>
+        <AvatarPlaceHolder name={currentUser.name}/>
       </div>
     </header>
   );

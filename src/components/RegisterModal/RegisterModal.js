@@ -52,6 +52,7 @@ function RegisterModal({ onClose, onRegister, handleLogin }) {
         id='registerEmail'
         onChange={handleEmailChange}
         value={email}
+        required
         />
       </div>
       <div className='input-field'>
@@ -64,6 +65,7 @@ function RegisterModal({ onClose, onRegister, handleLogin }) {
         name='password'
         onChange={handlePasswordChange}
         value={password}
+        required
         />
       </div>
       <div className='input-field'>
@@ -76,6 +78,7 @@ function RegisterModal({ onClose, onRegister, handleLogin }) {
         id='registerName'
         onChange={handleNameChange}
         value={name}
+        required
         />
       </div>
       <div className='input-field'>
@@ -88,6 +91,7 @@ function RegisterModal({ onClose, onRegister, handleLogin }) {
         id='registerAvatar'
         onChange={handleAvatarChange}
         value={avatar}
+        required
         />
       </div>
       <div className='button-container'>

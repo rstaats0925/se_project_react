@@ -13,6 +13,7 @@ function LoginModal({onClose, handleRegister}) {
           type='email'
           placeholder='Email'
           className='input-field__input'
+          required
           />
         </div>
         <div className='input-field'>
@@ -23,6 +24,7 @@ function LoginModal({onClose, handleRegister}) {
           name='password'
           placeholder='Password'
           className='input-field__input'
+          required
            />
         </div>
         <div className='button-container'>
