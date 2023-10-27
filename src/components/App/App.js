@@ -13,14 +13,15 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import { Route, Switch } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import RegisterModal from '../RegisterModal/RegisterModal';
+import EditProfileModal from '../EditProfileModal/EditProfileModal';
 import { signUp, signIn, verifyToken } from '../../utils/Auth';
 
 
 function App() {
   const [items, setItems] = React.useState([]);
-  const [activeModal, setActiveModal] = React.useState('register');
+  const [activeModal, setActiveModal] = React.useState('profile');
   const [selectedCard, setSelectedCard] = React.useState({});
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
   const [temp, setTemp] = React.useState(69);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = React.useState('F');
   const [currentUser, setCurrentUser] = React.useState({name: "Terrence Tegegne"});
@@ -37,6 +38,10 @@ function App() {
   const handleRegisterModal = () => {
     setActiveModal('');
     setActiveModal('register');
+  }
+
+  const handleEditProfileModal = () => {
+    setActiveModal('profile');
   }
 
   const handleCloseModal = () => {
@@ -139,7 +144,7 @@ function App() {
               <Main temperature={temp} clothes={items} onSelectedCard={handleSelectedCard}/>
             </Route>
             <ProtectedRoute isLoggedIn={isLoggedIn} path="/">
-              <Profile temperature={temp} clothes={items} onSelectedCard={handleSelectedCard} onCreateModal={handleCreateModal} path='/profile'/>
+              <Profile temperature={temp} clothes={items} onSelectedCard={handleSelectedCard} onCreateModal={handleCreateModal} openEdit={handleEditProfileModal} path='/profile'/>
             </ProtectedRoute>
           </Switch>
           <Footer/>
@@ -148,8 +153,9 @@ function App() {
             <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} onDeleteItem={handleDeleteItem} />
           )}
           {activeModal === 'login' && (<LoginModal onClose={handleCloseModal} handleRegister={handleRegisterModal}/>)}
-        </CurrentTemperatureUnitContext.Provider>
           {activeModal === 'register' && <RegisterModal onClose={handleCloseModal} onRegister={processRegistration} handleLogin={handleLogInModal}/>}
+          {activeModal === 'profile' && <EditProfileModal onClose={handleCloseModal} />}
+        </CurrentTemperatureUnitContext.Provider>
       </div>
     </CurrentUserContext.Provider>
   );

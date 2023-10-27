@@ -1,0 +1,10 @@
+.edit-profile-submit-button {
+  border-radius: 4px;
+  background-color: #000;
+  color: #FFF;
+  padding: 8px 16px;
+  border: none;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 32px;
+}

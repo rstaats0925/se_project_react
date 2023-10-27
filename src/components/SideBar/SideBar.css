@@ -1,3 +1,8 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
 .sidebar__profile-info {
   display: flex;
   align-items: center;
@@ -16,4 +21,17 @@
 .sidebar__username {
   font-size: 20px;
   font-weight: 700;
+}
+
+.sidebar__edit-profile-button {
+  border: none;
+  margin-top: 24px;
+  padding: none;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #F3F3F3;
+}
+
+.sidebar__edit-profile-button:hover {
+  cursor: pointer;
 }
