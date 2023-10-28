@@ -19,12 +19,12 @@ import { signUp, signIn, verifyToken } from '../../utils/Auth';
 
 function App() {
   const [items, setItems] = React.useState([]);
-  const [activeModal, setActiveModal] = React.useState('profile');
+  const [activeModal, setActiveModal] = React.useState('');
   const [selectedCard, setSelectedCard] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(true);
   const [temp, setTemp] = React.useState(69);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = React.useState('F');
-  const [currentUser, setCurrentUser] = React.useState({name: "Terrence Tegegne"});
+  const [currentUser, setCurrentUser] = React.useState({name: "Terrence Tegegne", avatar: "www.google.com"});
 
   const handleCreateModal = () => {
     setActiveModal('create');
