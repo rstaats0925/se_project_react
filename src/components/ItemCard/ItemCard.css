@@ -17,3 +17,20 @@
   font-weight: 700;
   line-height: 1.25;
 }
+
+.ItemCard__like-button {
+  background-image: url('../../images/like-inactive.svg');
+  position: absolute;
+  top: 22px;
+  left: 200px;
+  width: 18px;
+  height: 15px;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.ItemCard__like-button:hover {
+  cursor: pointer;
+}
