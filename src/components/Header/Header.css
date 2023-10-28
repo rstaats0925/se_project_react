@@ -27,6 +27,11 @@
   align-items: center;
 }
 
+.header__user-info {
+  display: flex;
+  column-gap: 20px;
+}
+
 .header__button-username {
   margin-right: 12px;
   display: flex;
@@ -60,4 +65,13 @@
 
 .avatar {
   width: 100%;
+}
+
+.header__sign-log-button {
+  border: none;
+  background-color: #F3F3F3;
+}
+
+.header__sign-log-button:hover {
+  cursor: pointer;
 }

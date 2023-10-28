@@ -21,10 +21,10 @@ function App() {
   const [items, setItems] = React.useState([]);
   const [activeModal, setActiveModal] = React.useState('');
   const [selectedCard, setSelectedCard] = React.useState({});
-  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [temp, setTemp] = React.useState(69);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = React.useState('F');
-  const [currentUser, setCurrentUser] = React.useState({name: "Terrence Tegegne", avatar: "www.google.com"});
+  const [currentUser, setCurrentUser] = React.useState({name: 'Terrence Tegegne'});
 
   const handleCreateModal = () => {
     setActiveModal('create');
@@ -145,7 +145,7 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="App">
         <CurrentTemperatureUnitContext.Provider value={{currentTemperatureUnit, handleToggleSwitchChange}}>
-          <Header onCreateModal={handleCreateModal}/>
+          <Header onCreateModal={handleCreateModal}  onRegisterModal={handleRegisterModal} onLogInModal={handleLogInModal} isLoggedIn={isLoggedIn} />
           <Switch>
             <Route exact path='/'>
               <Main temperature={temp} clothes={items} onSelectedCard={handleSelectedCard}/>

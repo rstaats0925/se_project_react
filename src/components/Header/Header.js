@@ -10,9 +10,10 @@ import CurrentUserContext from '../../contexts/CurrentUserContext.js';
 const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });
 // Terrence Tegegne
 
-function Header({onCreateModal, user}) {
+function Header({onCreateModal, onRegisterModal, onLogInModal, isLoggedIn}) {
 
   const currentUser = React.useContext(CurrentUserContext);
+  currentUser.avatar = avatar;
 
   return (
     <header className="header">
@@ -25,13 +26,20 @@ function Header({onCreateModal, user}) {
       <div className='header__user'>
         <div className='header__button-username'>
           <ToggleSwitch />
-          <button className='header__add-clothes' type="button" onClick={onCreateModal}>+ Add clothes</button>
-          <Link to="/profile">
-            <div className='header__username'>{currentUser.name}</div>
-          </Link>
+          {isLoggedIn ? (<div className='header__user-info'>
+            <button className='header__add-clothes' type="button" onClick={onCreateModal}>+ Add clothes</button>
+            <Link to="/profile">
+              <div className='header__username'>{currentUser.name}</div>
+            </Link>
+            <div className='header__avatar-container'><img className='avatar' src={currentUser.avatar} alt="avatar"></img></div>
+          </div>) : 
+          (<div className='header__user-info'>
+            <button className='header__sign-log-button' type='button' onClick={onRegisterModal}>Sign Up</button>
+            <button className='header__sign-log-button' type='button' onClick={onLogInModal}>Log In</button>
+          </div>)}
         </div>
         {/* <div className='header__avatar-container'><img className='avatar' src={avatar} alt="avatar"></img></div> */}
-        <AvatarPlaceHolder name={currentUser.name}/>
+        {/* <AvatarPlaceHolder name={currentUser.name}/> */}
       </div>
     </header>
   );
