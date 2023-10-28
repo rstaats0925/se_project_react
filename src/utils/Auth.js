@@ -32,12 +32,13 @@ export function verifyToken(token) {
   })
 }
 
-export function updateUser(token) {
+export function updateUser(token, changes) {
   return fetch(`${baseUrl}/users/me`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`
-    }
+    },
+    body: JSON.stringify(changes)
   })
 }

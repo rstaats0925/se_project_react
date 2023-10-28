@@ -2,10 +2,10 @@ import React from 'react';
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import './EditProfileModal.css';
-function EditProfileModal({ onClose }) {
+function EditProfileModal({ onClose, onUpdate }) {
   const currentUser = React.useContext(CurrentUserContext);
-  const [name, setName] = React.useState('');
-  const [avatar, setAvatar] = React.useState('');
+  const [name, setName] = React.useState(currentUser.name);
+  const [avatar, setAvatar] = React.useState(currentUser.avatar);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -15,8 +15,13 @@ function EditProfileModal({ onClose }) {
     setAvatar(event.target.value);
   }
 
+  const handleSubmission = (event, name, avatar) => {
+    event.preventDefault();
+    onUpdate({name, avatar});
+  }
+
   return (
-    <ModalWithForm title="Change profile data" onClose={onClose}>
+    <ModalWithForm title="Change profile data" onClose={onClose} onSubmit={(event => handleSubmission(event, name, avatar))}>
       <div className="input-field">
         <label className="input-field__label" htmlFor="edit-name">Name*</label>
         <input 
@@ -25,7 +30,7 @@ function EditProfileModal({ onClose }) {
         id="edit-name"
         type="text"
         placeholder="Name"
-        value={currentUser.name}
+        value={name}
         onChange={handleNameChange}
         required />
       </div>
@@ -38,7 +43,7 @@ function EditProfileModal({ onClose }) {
         type="url"
         placeholder="Avatar"
         onChange={handleAvatarChange}
-        value={currentUser.avatar}
+        value={avatar}
         />
       </div>
       <button className="edit-profile-submit-button" type="submit">Save Changes</button>

@@ -14,7 +14,7 @@ import { Route, Switch } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import RegisterModal from '../RegisterModal/RegisterModal';
 import EditProfileModal from '../EditProfileModal/EditProfileModal';
-import { signUp, signIn, verifyToken } from '../../utils/Auth';
+import { signUp, signIn, verifyToken, updateUser } from '../../utils/Auth';
 
 
 function App() {
@@ -66,6 +66,13 @@ function App() {
         }
       })
       .catch(err => console.error(`Error: ${err.message}`));
+  }
+
+  const handleUserUpdate = (values) => {
+    const token = localStorage.get('jwt');
+    updateUser(token, values)
+      .then(user => console.log(user))
+      .catch(err => console.error(`Error: ${err.message}`))
   }
 
   const handleSelectedCard = (card) => {
@@ -154,7 +161,7 @@ function App() {
           )}
           {activeModal === 'login' && (<LoginModal onClose={handleCloseModal} handleRegister={handleRegisterModal}/>)}
           {activeModal === 'register' && <RegisterModal onClose={handleCloseModal} onRegister={processRegistration} handleLogin={handleLogInModal}/>}
-          {activeModal === 'profile' && <EditProfileModal onClose={handleCloseModal} />}
+          {activeModal === 'profile' && <EditProfileModal onClose={handleCloseModal} onUpdate={handleUserUpdate} />}
         </CurrentTemperatureUnitContext.Provider>
       </div>
     </CurrentUserContext.Provider>
