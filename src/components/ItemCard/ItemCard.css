@@ -6,13 +6,25 @@
 .ItemCard__image {
   width: 100%;
   border-radius: 20px;
+  display: block;
+  max-width: 328px;
+  max-height: 328px;
+}
+
+.ItemCard__header {
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+  position: absolute;
+  top: 0;
+  left: 120px;
 }
 
 .ItemCard__name {
-  position: absolute;
-  top: 0;
-  left: 140px;
-  margin-top: 18px;
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 140px; */
+  /* margin-top: 18px; */
   font-size: 16px;
   font-weight: 700;
   line-height: 1.25;
@@ -20,9 +32,11 @@
 
 .ItemCard__like-button {
   background-image: url('../../images/like-inactive.svg');
-  position: absolute;
-  top: 22px;
-  left: 200px;
+  background-color: rgba(0, 0, 0, 0);
+  align-self: center;
+  /* position: absolute; */
+  /* top: 22px; */
+  /* left: 200px; */
   width: 18px;
   height: 15px;
   border: none;

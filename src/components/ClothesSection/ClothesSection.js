@@ -1,9 +1,11 @@
 import React from 'react';
 import ItemCard from '../ItemCard/ItemCard.js';
 import './ClothesSection.css';
+import CurrentUserContext from '../../contexts/CurrentUserContext.js';
 
 function ClothesSection({clothes, onSelectedCard, temperature, onCreateModal}) {
   const fahrenheit = temperature.F;
+  const currentUser = React.useContext(CurrentUserContext);
 
   const weatherType = React.useMemo(() => {
     if (fahrenheit < 50) {
@@ -20,7 +22,7 @@ function ClothesSection({clothes, onSelectedCard, temperature, onCreateModal}) {
   });
 
   const clothingItems = appropriateClothing.map(item => {
-    return (
+    return ( 
       <li className="clothes__item" key={item._id}>
         <ItemCard item={item} onSelectedCard={onSelectedCard} />
       </li>

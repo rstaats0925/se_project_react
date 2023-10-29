@@ -86,6 +86,7 @@ function AddItemModal ({onClose, onAddItem}) {
           <label htmlFor="Cold" className='radio-block__label'>Cold</label>
         </div>
       </div>
+      <button className='submit-button' type='submit'>Add Garment</button>
     </ModalWithForm>
   );
 }

@@ -91,9 +91,14 @@ function App() {
   };
 
   const handleAddItem = (item) => {
-    postItems(item)
-    .then(res => {
-      setItems([res, ...items]);
+    const token = localStorage.getItem('jwt');
+    postItems(item, token).then(res => {
+      console.log('handleAddItem');
+      console.log(res);
+      // const newList = [res.data, ...items];
+      // console.log(newList);
+      setItems([res.data, ...items]);
+      // console.log(`handleAddItems: ${items}`);
       handleCloseModal();
     })
     .catch(err => {
@@ -129,6 +134,7 @@ function App() {
   React.useEffect(() => {
     getItems()
     .then(data => {
+      console.log(`useEffect: ${data}`)
       setItems(data);
     })
     .catch(err => {
@@ -143,7 +149,6 @@ function App() {
       verifyToken(token)
         .then(res => res.json())
         .then(user => {
-          console.log(user);
           setCurrentUser(user);
         });
     }

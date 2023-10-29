@@ -3,11 +3,12 @@ import WeatherCard from "../WeatherCard/WeatherCard";
 import './Main.css';
 import React from 'react';
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 
 function Main({temperature, clothes, onSelectedCard}) {
 
+  const currentUser = React.useContext(CurrentUserContext);
   const {currentTemperatureUnit} = React.useContext(CurrentTemperatureUnitContext);
   const fahrenheit = temperature.F;
 
@@ -22,7 +23,7 @@ function Main({temperature, clothes, onSelectedCard}) {
   }, [fahrenheit]);
 
   const appropriateClothing = clothes.filter(clothing => {
-    return clothing.weather === weatherType;
+    return clothing.weather === weatherType && clothing.owner === currentUser._id;
   });
 
   const clothingItems = appropriateClothing.map(item => {
