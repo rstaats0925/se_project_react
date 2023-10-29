@@ -41,4 +41,5 @@ export function updateUser(token, changes) {
     },
     body: JSON.stringify(changes)
   })
+  .then(user => user.json())
 }

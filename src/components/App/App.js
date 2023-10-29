@@ -24,7 +24,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [temp, setTemp] = React.useState(69);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = React.useState('F');
-  const [currentUser, setCurrentUser] = React.useState({name: 'Terrence Tegegne'});
+  const [currentUser, setCurrentUser] = React.useState({});
 
   const handleCreateModal = () => {
     setActiveModal('create');
@@ -61,8 +61,12 @@ function App() {
     signIn(values)
       .then(res => res.json())
       .then(res => {
+        setIsLoggedIn(true);
         if (res.token) {
           localStorage.setItem('jwt', res.token);
+          verifyToken(res.token)
+            .then(res => res.json())
+            .then(user => setCurrentUser(user))
         }
       })
       .catch(err => console.error(`Error: ${err.message}`));

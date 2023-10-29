@@ -35,11 +35,6 @@ function RegisterModal({ onClose, onRegister, handleLogin }) {
       })
   }
 
-  const handleClick =(event) => {
-    event.preventDefault();
-    console.log('Hello, Javascript!');
-  }
-
   return (
     <ModalWithForm buttonText='Next' title='Sign up' onClose={onClose} onSubmit={event => handleSubmit(event, {name, avatar, email, password})}>
       <div className='input-field'>

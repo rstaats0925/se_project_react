@@ -13,7 +13,6 @@ const currentDate = new Date().toLocaleString('default', { month: 'long', day: '
 function Header({onCreateModal, onRegisterModal, onLogInModal, isLoggedIn}) {
 
   const currentUser = React.useContext(CurrentUserContext);
-  currentUser.avatar = avatar;
 
   return (
     <header className="header">
