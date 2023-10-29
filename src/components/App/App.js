@@ -138,10 +138,14 @@ function App() {
 
   React.useEffect(() => {
     if (localStorage.getItem('jwt')) {
+      setIsLoggedIn(true);
       const token = localStorage.getItem('jwt');
       verifyToken(token)
         .then(res => res.json())
-        .then(user => console.log(user));
+        .then(user => {
+          console.log(user);
+          setCurrentUser(user);
+        });
     }
   }, []);
 
