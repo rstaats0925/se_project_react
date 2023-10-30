@@ -93,12 +93,7 @@ function App() {
   const handleAddItem = (item) => {
     const token = localStorage.getItem('jwt');
     postItems(item, token).then(res => {
-      console.log('handleAddItem');
-      console.log(res);
-      // const newList = [res.data, ...items];
-      // console.log(newList);
       setItems([res.data, ...items]);
-      // console.log(`handleAddItems: ${items}`);
       handleCloseModal();
     })
     .catch(err => {
