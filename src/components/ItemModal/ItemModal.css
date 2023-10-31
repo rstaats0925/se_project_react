@@ -72,6 +72,6 @@
   visibility: hidden;
 }
 
-.ItemModal__delete:hover {
+.ItemModal__delete-button_visible:hover {
   cursor: pointer;
 }

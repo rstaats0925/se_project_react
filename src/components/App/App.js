@@ -102,10 +102,11 @@ function App() {
   }
 
   const handleDeleteItem = (item) => {
-    deleteItem(item._id)
+    const token = localStorage.getItem('jwt');
+    deleteItem(item._id, token)
     .then(res => {
       const updatedItemsArray = items.filter(i => {
-        return i != item;
+        return i !== item;
       })
       setItems(updatedItemsArray);
       handleCloseModal();
@@ -129,7 +130,6 @@ function App() {
   React.useEffect(() => {
     getItems()
     .then(data => {
-      console.log(`useEffect: ${data}`)
       setItems(data);
     })
     .catch(err => {
