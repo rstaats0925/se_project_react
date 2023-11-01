@@ -23,7 +23,7 @@ function Main({temperature, clothes, onSelectedCard}) {
   }, [fahrenheit]);
 
   const appropriateClothing = clothes.filter(clothing => {
-    return clothing.weather === weatherType && clothing.owner === currentUser._id;
+    return clothing.weather === weatherType;
   });
 
   const clothingItems = appropriateClothing.map(item => {

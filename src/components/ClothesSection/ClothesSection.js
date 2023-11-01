@@ -18,7 +18,7 @@ function ClothesSection({clothes, onSelectedCard, temperature, onCreateModal}) {
   }, [fahrenheit]);
 
   const appropriateClothing = clothes.filter(clothing => {
-    return clothing.weather === weatherType;
+    return clothing.owner === currentUser._id;
   });
 
   const clothingItems = appropriateClothing.map(item => {

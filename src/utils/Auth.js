@@ -34,7 +34,7 @@ export function verifyToken(token) {
 
 export function updateUser(token, changes) {
   return fetch(`${baseUrl}/users/me`, {
-    method: "POST",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`

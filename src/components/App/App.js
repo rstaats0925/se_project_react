@@ -73,9 +73,11 @@ function App() {
   }
 
   const handleUserUpdate = (values) => {
-    const token = localStorage.get('jwt');
-    updateUser(token, values)
-      .then(user => console.log(user))
+    const token = localStorage.getItem('jwt');
+    return updateUser(token, values)
+      .then(res => {
+        setCurrentUser(res.user);
+      })
       .catch(err => console.error(`Error: ${err.message}`))
   }
 
