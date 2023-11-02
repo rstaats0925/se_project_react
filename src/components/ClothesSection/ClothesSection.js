@@ -3,7 +3,7 @@ import ItemCard from '../ItemCard/ItemCard.js';
 import './ClothesSection.css';
 import CurrentUserContext from '../../contexts/CurrentUserContext.js';
 
-function ClothesSection({clothes, onSelectedCard, temperature, onCreateModal}) {
+function ClothesSection({clothes, onSelectedCard, temperature, onCreateModal, onCardLike}) {
   const fahrenheit = temperature.F;
   const currentUser = React.useContext(CurrentUserContext);
 
@@ -24,7 +24,7 @@ function ClothesSection({clothes, onSelectedCard, temperature, onCreateModal}) {
   const clothingItems = appropriateClothing.map(item => {
     return ( 
       <li className="clothes__item" key={item._id}>
-        <ItemCard item={item} onSelectedCard={onSelectedCard} />
+        <ItemCard item={item} onSelectedCard={onSelectedCard} user={currentUser} onCardLike={onCardLike} />
       </li>
     )
   });

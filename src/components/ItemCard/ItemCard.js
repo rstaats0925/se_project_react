@@ -10,13 +10,13 @@ function ItemCard ({item, onSelectedCard, user, onCardLike}) {
     event.preventDefault();
     onCardLike({isLiked, id})
   }
-  
+
   return (
       <div className='ItemCard'>
         <img className='ItemCard__image' alt={item.name} src={item.imageUrl} onClick={() => onSelectedCard(item)}/>
         <div className='ItemCard__header'>
           <p className='ItemCard__name'>{item.name}</p>
-          <button className={`ItemCard__like-button ${likeButtonStyle}`} type='button' onClick={event => handleLikeClick(event, {isLiked, id})}></button>
+          {item.owner === user._id &&<button className={`ItemCard__like-button ${likeButtonStyle}`} type='button' onClick={event => handleLikeClick(event, {isLiked, id})}></button>}
         </div>
       </div>
   );

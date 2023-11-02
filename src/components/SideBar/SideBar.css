@@ -5,7 +5,7 @@
 
 .sidebar__profile-info {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   column-gap: 16px;
 }
 
@@ -30,8 +30,23 @@
   font-size: 20px;
   font-weight: 700;
   background-color: #F3F3F3;
+  text-align: start;
 }
 
 .sidebar__edit-profile-button:hover {
+  cursor: pointer;
+}
+
+.sidebar__log-out {
+  border: none;
+  margin-top: 8px;
+  padding: none;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #F3F3F3;
+  text-align: start;
+}
+
+.sidebar__log-out:hover {
   cursor: pointer;
 }

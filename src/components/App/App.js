@@ -72,6 +72,11 @@ function App() {
       .catch(err => console.error(`Error: ${err.message}`));
   }
 
+  const handleLogOut = () => {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+  }
+
   const handleUserUpdate = (values) => {
     const token = localStorage.getItem('jwt');
     return updateUser(token, values)
@@ -184,7 +189,7 @@ function App() {
               <Main temperature={temp} clothes={items} onSelectedCard={handleSelectedCard} onCardLike={handleCardClick} />
             </Route>
             <ProtectedRoute isLoggedIn={isLoggedIn} path="/">
-              <Profile temperature={temp} clothes={items} onSelectedCard={handleSelectedCard} onCreateModal={handleCreateModal} openEdit={handleEditProfileModal} path='/profile'/>
+              <Profile temperature={temp} clothes={items} onSelectedCard={handleSelectedCard} onCreateModal={handleCreateModal} openEdit={handleEditProfileModal} onCardLike={handleCardClick} onLogOut={handleLogOut} path='/profile'/>
             </ProtectedRoute>
           </Switch>
           <Footer/>

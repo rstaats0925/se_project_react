@@ -1,8 +1,11 @@
 import React from 'react';
 import './SideBar.css';
-// import avatar from '../../images/avatar.svg';
 
-function SideBar({ openEdit, avatar, name }) {
+function SideBar({ openEdit, avatar, name, onLogOut }) {
+  const handleLogOut = (event) => {
+    event.preventDefault();
+    onLogOut();
+  }
 
   return (
     <div className='sidebar'>
@@ -11,6 +14,7 @@ function SideBar({ openEdit, avatar, name }) {
         <div className='sidebar__username'>{name}</div>
       </div>
       <button className='sidebar__edit-profile-button' type='button' onClick={openEdit}>Change Profile Data</button>
+      <button className='sidebar__log-out' type='button' onClick={event => handleLogOut(event)}>Log out</button>
     </div>
   )
 }
