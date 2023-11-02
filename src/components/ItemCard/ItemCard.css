@@ -32,18 +32,38 @@
 }
 
 .ItemCard__like-button {
-  background-image: url('../../images/like-inactive.svg');
   background-color: rgba(0, 0, 0, 0);
   align-self: center;
-  /* position: absolute; */
-  /* top: 22px; */
-  /* left: 200px; */
   width: 18px;
   height: 15px;
   border: none;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.ItemCard__like-button_inactive {
+  background-image: url('../../images/like-inactive.svg');
+  /* background-color: rgba(0, 0, 0, 0);
+  align-self: center;
+  width: 18px;
+  height: 15px;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain; */
+}
+
+.ItemCard__like-button_active {
+  background-image: url('../../images/like-active.svg');
+  /* background-color: rgba(0, 0, 0, 0);
+  align-self: center;
+  width: 18px;
+  height: 15px;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain; */
 }
 
 .ItemCard__like-button:hover {

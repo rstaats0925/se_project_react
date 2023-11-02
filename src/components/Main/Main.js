@@ -6,7 +6,7 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 
-function Main({temperature, clothes, onSelectedCard}) {
+function Main({temperature, clothes, onSelectedCard, onCardLike}) {
 
   const currentUser = React.useContext(CurrentUserContext);
   const {currentTemperatureUnit} = React.useContext(CurrentTemperatureUnitContext);
@@ -27,9 +27,10 @@ function Main({temperature, clothes, onSelectedCard}) {
   });
 
   const clothingItems = appropriateClothing.map(item => {
+    // const isLiked = item.likes.includes(currentUser._id);
     return (
       <li className="clothes__item" key={item._id}>
-        <ItemCard item={item} onSelectedCard={onSelectedCard} />
+        <ItemCard item={item} onSelectedCard={onSelectedCard} user={currentUser} onCardLike={onCardLike} />
       </li>
     )
   })

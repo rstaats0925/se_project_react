@@ -6,7 +6,7 @@ import Profile from '../Profile/Profile.js';
 import Footer from '../Footer/Footer';
 import AddItemModal from '../AddItemModal/AddItemModal';
 import LoginModal from '../LoginModal/LoginModal';
-import { getForcastWeather, parseWeatherData, getItems, postItems, deleteItem } from '../../utils/Api.js';
+import { getForcastWeather, parseWeatherData, getItems, postItems, deleteItem, addCardLike, removeCardLike } from '../../utils/Api.js';
 import ItemModal from '../ItemModal/ItemModal';
 import CurrentTemperatureUnitContext from '../../contexts/CurrentTemperatureUnitContext.js';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
@@ -58,7 +58,7 @@ function App() {
   }
 
   const handleSignIn = (values) => {
-    signIn(values)
+    return signIn(values)
       .then(res => res.json())
       .then(res => {
         setIsLoggedIn(true);
@@ -118,6 +118,29 @@ function App() {
     })
   }
 
+  const handleCardClick = ({id, isLiked}) => {
+    const token = localStorage.getItem("jwt");
+    isLiked
+      ?
+        removeCardLike(id, token)
+          .then(updatedCard => {
+            console.log(updatedCard)
+            setItems(cards => {
+              return cards.map(c => c._id === id ? updatedCard : c)
+            })
+          })
+          .catch(err => console.error(`Error: ${err.message}`))
+      :
+        addCardLike(id, token)
+          .then(updatedCard => {
+            console.log(updatedCard)
+            setItems(cards => {
+              return cards.map(c => c._id === id ? updatedCard : c)
+            })
+          })
+          .catch(err => console.error(`Error: ${err.message}`))
+  }
+
   React.useEffect(() => {
     getForcastWeather()
     .then(data => {
@@ -158,7 +181,7 @@ function App() {
           <Header onCreateModal={handleCreateModal}  onRegisterModal={handleRegisterModal} onLogInModal={handleLogInModal} isLoggedIn={isLoggedIn} />
           <Switch>
             <Route exact path='/'>
-              <Main temperature={temp} clothes={items} onSelectedCard={handleSelectedCard}/>
+              <Main temperature={temp} clothes={items} onSelectedCard={handleSelectedCard} onCardLike={handleCardClick} />
             </Route>
             <ProtectedRoute isLoggedIn={isLoggedIn} path="/">
               <Profile temperature={temp} clothes={items} onSelectedCard={handleSelectedCard} onCreateModal={handleCreateModal} openEdit={handleEditProfileModal} path='/profile'/>
@@ -169,7 +192,7 @@ function App() {
           {activeModal === 'preview' && (
             <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} onDeleteItem={handleDeleteItem} />
           )}
-          {activeModal === 'login' && (<LoginModal onClose={handleCloseModal} handleRegister={handleRegisterModal}/>)}
+          {activeModal === 'login' && (<LoginModal onClose={handleCloseModal} handleLogin={handleSignIn}/>)}
           {activeModal === 'register' && <RegisterModal onClose={handleCloseModal} onRegister={processRegistration} handleLogin={handleLogInModal}/>}
           {activeModal === 'profile' && <EditProfileModal onClose={handleCloseModal} onUpdate={handleUserUpdate} />}
         </CurrentTemperatureUnitContext.Provider>

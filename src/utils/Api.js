@@ -70,3 +70,23 @@ export function deleteItem(id, token) {
     return checkResponse(response); 
   })
 }
+
+export function addCardLike(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`
+    }
+  }).then(res => checkResponse(res));
+}
+
+export function removeCardLike(id, token) {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`
+    }
+  }).then(res => checkResponse(res));
+}
