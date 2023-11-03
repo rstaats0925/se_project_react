@@ -38,6 +38,7 @@ function LoginModal({ onClose, handleLogin }) {
           placeholder="Email"
           className="input-field__input"
           onChange={handleEmailChange}
+          value={email}
           required
         />
       </div>
@@ -52,6 +53,7 @@ function LoginModal({ onClose, handleLogin }) {
           placeholder="Password"
           className="input-field__input"
           onChange={handlePasswordChange}
+          value={password}
           required
         />
       </div>
