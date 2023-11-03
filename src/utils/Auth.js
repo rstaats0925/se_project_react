@@ -39,5 +39,5 @@ export function updateUser(token, changes) {
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(changes),
-  }).then((user) => user.json());
+  }).then((user) => checkResponse(user));
 }
