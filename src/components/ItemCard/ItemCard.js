@@ -3,13 +3,9 @@ import "./ItemCard.css";
 
 function ItemCard({ item, onSelectedCard, user, onCardLike }) {
   const id = item._id;
-  let hasUser = user.name;
-  let isLiked;
-  if (user) {
-    isLiked = item.likes.includes(user._id);
-  }
-  // let isLiked = item.likes.includes(user._id);
-  let likeButtonStyle = `ItemCard__like-button_${
+  const hasUser = user.name;
+  const isLiked = item.likes.includes(user._id);
+  const likeButtonStyle = `ItemCard__like-button_${
     isLiked ? "active" : "inactive"
   }`;
 
