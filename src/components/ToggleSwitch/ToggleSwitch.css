@@ -7,7 +7,7 @@
 
 .Toggle__checkbox {
   border-radius: 20px;
-  border: 2px solid #7E7E7E;
+  border: 2px solid #7e7e7e;
   width: 56px;
   height: 28px;
   appearance: none;
@@ -50,7 +50,7 @@
 }
 
 .font_active {
-  color: #FFF;
+  color: #fff;
 }
 
 .font_inactive {

@@ -43,7 +43,7 @@
 }
 
 .ItemCard__like-button_inactive {
-  background-image: url('../../images/like-inactive.svg');
+  background-image: url("../../images/like-inactive.svg");
   /* background-color: rgba(0, 0, 0, 0);
   align-self: center;
   width: 18px;
@@ -55,7 +55,7 @@
 }
 
 .ItemCard__like-button_active {
-  background-image: url('../../images/like-active.svg');
+  background-image: url("../../images/like-active.svg");
   /* background-color: rgba(0, 0, 0, 0);
   align-self: center;
   width: 18px;

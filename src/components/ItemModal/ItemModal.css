@@ -9,7 +9,7 @@
 }
 
 .ItemModal__close-button {
-  background-image: url('../../images/close-icon.svg');
+  background-image: url("../../images/close-icon.svg");
   background-repeat: no-repeat;
   background-position: center;
   box-sizing: border-box;
@@ -51,7 +51,7 @@
   position: absolute;
   right: 32px;
   bottom: 68px;
-  color: #FF4D00;
+  color: #ff4d00;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
@@ -63,7 +63,7 @@
   position: absolute;
   right: 32px;
   bottom: 68px;
-  color: #FF4D00;
+  color: #ff4d00;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;

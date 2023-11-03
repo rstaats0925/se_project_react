@@ -7,11 +7,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0,  0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal__content {
-  background-color: #FFF;
+  background-color: #fff;
   box-sizing: border-box;
   max-width: 496px;
   width: 100%;
@@ -22,7 +22,7 @@
 }
 
 .modal__close-button {
-  background-image: url('../../images/ItemModalCloseButton.svg');
+  background-image: url("../../images/ItemModalCloseButton.svg");
   background-repeat: no-repeat;
   background-position: center;
   box-sizing: border-box;

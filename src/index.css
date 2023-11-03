@@ -1,11 +1,11 @@
-@import url('./vendor/normalize.css');
+@import url("./vendor/normalize.css");
 @import url("./vendor/fonts/fonts.css");
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 body {
-  font-family: 'FamiljenGrotesk';
+  font-family: "FamiljenGrotesk";
 }

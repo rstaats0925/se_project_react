@@ -39,7 +39,7 @@
 }
 
 .header__add-clothes {
-  font-family: 'FamiljenGrotesk', Arial, Helvetica, sans-serif;
+  font-family: "FamiljenGrotesk", Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 20px;
   margin-right: 20px;
@@ -69,7 +69,7 @@
 
 .header__sign-log-button {
   border: none;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
 }
 
 .header__sign-log-button:hover {

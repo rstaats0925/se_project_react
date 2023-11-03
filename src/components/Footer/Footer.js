@@ -1,6 +1,6 @@
-import './Footer.css';
+import "./Footer.css";
 
-function Footer () {
+function Footer() {
   return (
     <footer className="footer">
       <p className="footer__student">Developed by Ryan Staats</p>

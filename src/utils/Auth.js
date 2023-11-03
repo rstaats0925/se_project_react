@@ -1,35 +1,34 @@
-const baseUrl = 'http://localhost:3001';
+import { checkResponse } from "./Api.js";
+const baseUrl = "http://localhost:3001";
 
-export function signUp({name, avatar, email, password}) {
+export function signUp({ name, avatar, email, password }) {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({name, avatar, email, password})
-  })
-  .then(res => res.json())
-  .then(data => console.log(data))
+    body: JSON.stringify({ name, avatar, email, password }),
+  }).then((res) => checkResponse(res));
 }
 
-export function signIn({email, password}) {
+export function signIn({ email, password }) {
   return fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
-      "Content-Type": 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({email, password})
-  })
+    body: JSON.stringify({ email, password }),
+  }).then((res) => checkResponse(res));
 }
 
 export function verifyToken(token) {
   return fetch(`${baseUrl}/users/me`, {
-    method: 'GET',
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`
-    }
-  })
+      authorization: `Bearer ${token}`,
+    },
+  }).then((res) => checkResponse(res));
 }
 
 export function updateUser(token, changes) {
@@ -37,9 +36,8 @@ export function updateUser(token, changes) {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`
+      authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(changes)
-  })
-  .then(user => user.json())
+    body: JSON.stringify(changes),
+  }).then((user) => user.json());
 }

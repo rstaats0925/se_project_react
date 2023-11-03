@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'FamiljenGrotesk';
-  src: url('./FamiljenGrotesk-Medium.woff') format('woff');
+  font-family: "FamiljenGrotesk";
+  src: url("./FamiljenGrotesk-Medium.woff") format("woff");
   font-weight: 500;
 }
 
 @font-face {
-  font-family: 'FamiljenGrotesk';
-  src: url('./FamiljenGrotesk-Bold.woff') format('woff');
+  font-family: "FamiljenGrotesk";
+  src: url("./FamiljenGrotesk-Bold.woff") format("woff");
   font-weight: 700;
 }

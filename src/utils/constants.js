@@ -34,14 +34,30 @@ const defaultClothingItems = [
     name: "Winter coat",
     weather: "cold",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
-  }
-]
-
-const weatherOptions = [
-  {url: require('../images/day/day-rain.svg').default, day: true, type: 'rain'},
-  {url: require('../images/night/night-storm.svg').default, day: false, type: 'storm'},
-  {url: require('../images/night/night-snow.svg').default, day: false, type: 'snow'},
-  {url: require('../images/day/day-sunny.svg').default, day: true, type: 'sunny'},
+  },
 ];
 
-export {defaultClothingItems, weatherOptions};
+const weatherOptions = [
+  {
+    url: require("../images/day/day-rain.svg").default,
+    day: true,
+    type: "rain",
+  },
+  {
+    url: require("../images/night/night-storm.svg").default,
+    day: false,
+    type: "storm",
+  },
+  {
+    url: require("../images/night/night-snow.svg").default,
+    day: false,
+    type: "snow",
+  },
+  {
+    url: require("../images/day/day-sunny.svg").default,
+    day: true,
+    type: "sunny",
+  },
+];
+
+export { defaultClothingItems, weatherOptions };

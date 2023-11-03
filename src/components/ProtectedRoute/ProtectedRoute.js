@@ -1,12 +1,12 @@
-import React from 'react';
-import {Route, Redirect} from 'react-router-dom';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 
-function ProtectedRoute({children, isLoggedIn, ...props}) {
+function ProtectedRoute({ children, isLoggedIn, ...props }) {
   return (
     <Route {...props}>
-      {isLoggedIn ? children: <Redirect path={props.path} />}
+      {isLoggedIn ? children : <Redirect path={props.path} />}
     </Route>
-  )
+  );
 }
 
 export default ProtectedRoute;
