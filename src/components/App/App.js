@@ -33,6 +33,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] =
     React.useState("F");
   const [currentUser, setCurrentUser] = React.useState({});
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -55,6 +56,24 @@ function App() {
   const handleCloseModal = () => {
     setActiveModal("");
   };
+
+  React.useEffect(() => {
+    if (!activeModal) return; // stop the effect not to add the listener if there is no active modal
+
+    const handleEscClose = (e) => {
+      // define the function inside useEffect not to lose the reference on rerendering
+      if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      // don't forget to add a clean up function for removing the listener
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]); // watch activeModal here
 
   const processRegistration = (values) => {
     return signUp(values)
@@ -85,11 +104,13 @@ function App() {
 
   const handleUserUpdate = (values) => {
     const token = localStorage.getItem("jwt");
+    setIsLoading(true);
     return updateUser(token, values)
       .then((res) => {
         setCurrentUser(res.user);
       })
-      .catch((err) => console.error(`Error: ${err.message}`));
+      .catch((err) => console.error(`Error: ${err.message}`))
+      .finally(setIsLoading(false));
   };
 
   const handleSelectedCard = (card) => {
@@ -246,6 +267,7 @@ function App() {
             <EditProfileModal
               onClose={handleCloseModal}
               onUpdate={handleUserUpdate}
+              isLoading={isLoading}
             />
           )}
         </CurrentTemperatureUnitContext.Provider>

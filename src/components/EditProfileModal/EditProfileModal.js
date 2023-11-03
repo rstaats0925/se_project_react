@@ -2,7 +2,7 @@ import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./EditProfileModal.css";
-function EditProfileModal({ onClose, onUpdate }) {
+function EditProfileModal({ onClose, onUpdate, isLoading }) {
   const currentUser = React.useContext(CurrentUserContext);
   const [name, setName] = React.useState(currentUser.name);
   const [avatar, setAvatar] = React.useState(currentUser.avatar);
@@ -58,7 +58,7 @@ function EditProfileModal({ onClose, onUpdate }) {
         />
       </div>
       <button className="edit-profile-submit-button" type="submit">
-        Save Changes
+        {isLoading ? "Loading..." : "Save Changes"}
       </button>
     </ModalWithForm>
   );
