@@ -110,7 +110,7 @@ function App() {
         setCurrentUser(res.user);
       })
       .catch((err) => console.error(`Error: ${err.message}`))
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false));
   };
 
   const handleSelectedCard = (card) => {
@@ -156,7 +156,6 @@ function App() {
     isLiked
       ? removeCardLike(id, token)
           .then((updatedCard) => {
-            console.log(updatedCard);
             setItems((cards) => {
               return cards.map((c) => (c._id === id ? updatedCard : c));
             });
@@ -164,7 +163,6 @@ function App() {
           .catch((err) => console.error(`Error: ${err.message}`))
       : addCardLike(id, token)
           .then((updatedCard) => {
-            console.log(updatedCard);
             setItems((cards) => {
               return cards.map((c) => (c._id === id ? updatedCard : c));
             });
