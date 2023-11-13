@@ -79,21 +79,19 @@ function App() {
     return signUp(values)
       .then((res) => {
         handleCloseModal();
-        handleSignIn(values);
+        return handleSignIn(values);
       })
       .catch((err) => console.error(`Error: ${err.message}`));
   };
 
   const handleSignIn = (values) => {
-    return signIn(values)
-      .then((res) => {
-        setIsLoggedIn(true);
-        if (res.token) {
-          localStorage.setItem("jwt", res.token);
-          verifyToken(res.token).then((user) => setCurrentUser(user));
-        }
-      })
-      .catch((err) => console.error(`Error: ${err.message}`));
+    return signIn(values).then((res) => {
+      setIsLoggedIn(true);
+      if (res.token) {
+        localStorage.setItem("jwt", res.token);
+        verifyToken(res.token).then((user) => setCurrentUser(user));
+      }
+    });
   };
 
   const handleLogOut = () => {
