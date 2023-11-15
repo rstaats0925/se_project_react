@@ -2,7 +2,7 @@ import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
-function LoginModal({ onClose, handleLogin }) {
+function LoginModal({ onClose, handleLogin, handleRegister }) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -16,7 +16,9 @@ function LoginModal({ onClose, handleLogin }) {
 
   const handleSubmission = (event) => {
     event.preventDefault();
-    handleLogin({ email, password }).then((res) => onClose());
+    handleLogin({ email, password })
+      .then((res) => onClose())
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -61,7 +63,11 @@ function LoginModal({ onClose, handleLogin }) {
         <button className="button-container__login" type="submit">
           Log in
         </button>
-        <button className="button-container__register" type="button">
+        <button
+          className="button-container__register"
+          type="button"
+          onClick={handleRegister}
+        >
           or Register
         </button>
       </div>

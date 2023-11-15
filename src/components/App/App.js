@@ -250,7 +250,11 @@ function App() {
             />
           )}
           {activeModal === "login" && (
-            <LoginModal onClose={handleCloseModal} handleLogin={handleSignIn} />
+            <LoginModal
+              onClose={handleCloseModal}
+              handleLogin={handleSignIn}
+              handleRegister={handleRegisterModal}
+            />
           )}
           {activeModal === "register" && (
             <RegisterModal
