@@ -1,6 +1,9 @@
 // https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}
 // to run the server use this command: json-server --watch db.json --id _id --port 3001
-const baseUrl = "http://localhost:3001";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "deployed-backend-url"
+    : "http://localhost:3001";
 
 const latitude = 41.97805;
 const longitude = -91.669861;

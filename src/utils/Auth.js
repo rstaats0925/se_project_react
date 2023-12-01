@@ -1,5 +1,8 @@
 import { checkResponse } from "./Api.js";
-const baseUrl = "http://localhost:3001";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "deployed-backend-url"
+    : "http://localhost:3001";
 
 export function signUp({ name, avatar, email, password }) {
   return fetch(`${baseUrl}/signup`, {
