@@ -1,7 +1,7 @@
 import { checkResponse } from "./Api.js";
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "deployed-backend-url"
+    ? "https://api.mongoose.jumpingcrab.com"
     : "http://localhost:3001";
 
 export function signUp({ name, avatar, email, password }) {

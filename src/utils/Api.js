@@ -2,7 +2,7 @@
 // to run the server use this command: json-server --watch db.json --id _id --port 3001
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "deployed-backend-url"
+    ? "https://api.mongoose.jumpingcrab.com"
     : "http://localhost:3001";
 
 const latitude = 41.97805;
